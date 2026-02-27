@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深圳 Sunday Service — 乐团合作方案</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+
+  :root {
+    --sand: #E8DFD0;
+    --warm-white: #F5F0E8;
+    --earth: #A89279;
+    --dark: #1A1714;
+    --charcoal: #2C2822;
+    --muted: #8A8072;
+    --cream: #FAF7F2;
+    --accent: #C4A97D;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(196,169,125,0.08) 0%, transparent 70%);
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 40px;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 8vw, 100px);
+    font-weight: 900;
+    color: var(--warm-white);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-location {
+    font-size: clamp(24px, 4vw, 48px);
+    font-weight: 300;
+    color: var(--earth);
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.8;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 40px;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* Section Base */
+  .section {
+    padding: 100px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-dark {
+    background: var(--dark);
+    color: var(--warm-white);
+    max-width: 100%;
+    padding: 100px 40px;
+  }
+
+  .section-dark .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-sand {
+    background: var(--sand);
+    max-width: 100%;
+    padding: 100px 40px;
+  }
+
+  .section-sand .section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+  }
+
+  .section-text {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--charcoal);
+    font-weight: 300;
+    max-width: 700px;
+  }
+
+  .section-dark .section-text {
+    color: rgba(245,240,232,0.7);
+  }
+
+  /* Grid */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Cards */
+  .card {
+    background: var(--warm-white);
+    padding: 40px;
+    border-radius: 2px;
+  }
+
+  .card-dark {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 40px;
+    border-radius: 2px;
+  }
+
+  .card-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .card-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .card-dark .card-text {
+    color: rgba(245,240,232,0.5);
+  }
+
+  /* Setlist */
+  .setlist {
+    margin-top: 50px;
+  }
+
+  .setlist-item {
+    display: grid;
+    grid-template-columns: 60px 1fr 180px 80px;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    gap: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .setlist-item {
+      grid-template-columns: 40px 1fr;
+      gap: 10px;
+    }
+    .setlist-album, .setlist-duration {
+      display: none;
+    }
+  }
+
+  .setlist-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .setlist-name {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .setlist-album {
+    font-size: 13px;
+    color: rgba(245,240,232,0.4);
+    font-weight: 300;
+  }
+
+  .setlist-duration {
+    font-size: 13px;
+    color: rgba(245,240,232,0.4);
+    text-align: right;
+    font-weight: 300;
+  }
+
+  .setlist-note {
+    grid-column: 2 / -1;
+    font-size: 13px;
+    color: rgba(245,240,232,0.35);
+    font-style: italic;
+    margin-top: -8px;
+    font-weight: 300;
+  }
+
+  /* Timeline */
+  .timeline {
+    margin-top: 50px;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 40px;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(26,23,20,0.08);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+
+  .timeline-time {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--earth);
+    padding-top: 2px;
+  }
+
+  .timeline-content h4 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .timeline-content p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* Visual Style */
+  .visual-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 4px;
+    margin-top: 50px;
+  }
+
+  .color-block {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 12px;
+  }
+
+  .color-name {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  /* Stage Diagram */
+  .stage-diagram-container {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stage-svg {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+
+  .stage-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  @media (max-width: 768px) {
+    .stage-legend {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .legend-ring {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 3px;
+    border: 2px dashed;
+    background: transparent;
+  }
+
+  .legend-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .legend-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .stage-dimensions {
+    margin-top: 30px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes float-particle {
+    0% { opacity: 0; transform: translateY(0) scale(0.5); }
+    30% { opacity: 1; }
+    70% { opacity: 0.6; }
+    100% { opacity: 0; transform: translateY(-40px) scale(0); }
+  }
+
+  @keyframes breathe {
+    0%, 100% { r: 68; opacity: 0.08; }
+    50% { r: 75; opacity: 0.14; }
+  }
+
+  /* Cooperation */
+  .coop-table {
+    width: 100%;
+    margin-top: 50px;
+    border-collapse: collapse;
+  }
+
+  .coop-table th {
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--earth);
+    padding: 16px 0;
+    border-bottom: 2px solid var(--dark);
+    font-weight: 500;
+  }
+
+  .coop-table td {
+    padding: 20px 0;
+    padding-right: 20px;
+    border-bottom: 1px solid rgba(26,23,20,0.08);
+    font-size: 15px;
+    vertical-align: top;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .coop-table td:first-child {
+    font-weight: 600;
+    color: var(--dark);
+    white-space: nowrap;
+  }
+
+  /* Emotion Curve */
+  .curve-container {
+    margin-top: 50px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 2px;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .curve-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Contact */
+  .contact-section {
+    background: var(--dark);
+    padding: 100px 40px;
+    text-align: center;
+  }
+
+  .contact-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .contact-text {
+    font-family: 'Playfair Display', 'Noto Sans SC', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--warm-white);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+    letter-spacing: 1px;
+  }
+
+  .contact-text .zh-line {
+    font-family: 'Noto Sans SC', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: clamp(26px, 4.5vw, 40px);
+    letter-spacing: 4px;
+    display: block;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--warm-white) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .contact-text .en-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 3vw, 28px);
+    color: var(--earth);
+    letter-spacing: 2px;
+    display: block;
+    opacity: 0.7;
+  }
+
+  .contact-info {
+    margin-top: 50px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  /* Divider */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--earth);
+    margin: 50px 0;
+  }
+
+  /* Page marker */
+  .page-marker {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Print styles */
+  @media print {
+    .hero { min-height: auto; padding: 60px 40px; }
+    .section, .section-dark, .section-sand { padding: 40px; }
+    body { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-subtitle">Partnership Proposal 2025</div>
+  <h1 class="hero-title">SUNDAY<br>SERVICE</h1>
+  <div class="hero-location">SHENZHEN</div>
+  <p class="hero-desc">
+    致敬 Kanye West Sunday Service 的大型户外合唱音乐会<br>
+    纯公益 / 纯音乐 / Kanye 经典曲目合唱改编
+  </p>
+  <div class="hero-badge">Confidential — For Partnership Discussion Only</div>
+</section>
+
+<!-- 01 项目概述 -->
+<section class="section">
+  <div class="section-label">01 / Project Overview</div>
+  <h2 class="section-title">我们要做什么</h2>
+  <p class="section-text">
+    在深圳城市地标举办一场大型户外合唱音乐会,以 Kanye West 的经典曲目为核心,通过百人合唱团的形式重新演绎。项目对标 Kanye West 于 2019 年发起的 Sunday Service——这一融合音乐、时尚与社群文化的现象级活动。
+  </p>
+  <div class="divider"></div>
+  <p class="section-text">
+    我们不是简单的翻唱演出。我们要创造一种沉浸式的音乐体验:百人合唱团围成同心圆,现场乐队居中演奏,观众自由围绕,在城市的开放空间中共同感受音乐的力量。
+  </p>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-number">100+</div>
+      <div class="card-title">合唱团规模</div>
+      <div class="card-text">目标百人以上的合唱团,包含多声部合唱、和声编排</div>
+    </div>
+    <div class="card">
+      <div class="card-number">7</div>
+      <div class="card-title">曲目</div>
+      <div class="card-text">精选 Kanye 经典作品,全部改编为合唱版本</div>
+    </div>
+    <div class="card">
+      <div class="card-number">0</div>
+      <div class="card-title">票价</div>
+      <div class="card-text">完全公益,免费向公众开放</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 活动定位 -->
+<section class="section-sand">
+  <div class="section-inner">
+    <div class="section-label">02 / Positioning</div>
+    <h2 class="section-title">活动定位</h2>
+    <p class="section-text" style="color: var(--charcoal);">
+      这是一场<strong>纯音乐定位</strong>的公益合唱音乐会。以 Kanye West 的音乐作品为核心内容,通过合唱团改编和现场演绎的方式,为深圳市民带来高品质的户外音乐体验。
+    </p>
+
+    <div class="grid-2" style="margin-top: 40px;">
+      <div>
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px;">我们是</h4>
+        <ul style="list-style: none; font-size: 14px; line-height: 2.2; color: var(--charcoal); font-weight: 300;">
+          <li>— Kanye West 经典曲目合唱改编专场</li>
+          <li>— 大型户外公益音乐体验</li>
+          <li>— 灵魂乐 / Gospel 风格合唱音乐会</li>
+          <li>— 城市公共文化活动</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px;">对外宣传关键词</h4>
+        <ul style="list-style: none; font-size: 14px; line-height: 2.2; color: var(--charcoal); font-weight: 300;">
+          <li>— 合唱 / Choir</li>
+          <li>— 灵魂乐 / Soul Music</li>
+          <li>— Kanye West 致敬</li>
+          <li>— 城市户外音乐</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 曲目单 -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--accent);">03 / Setlist</div>
+    <h2 class="section-title">曲目单</h2>
+    <p class="section-text">全部 Kanye West 作品,覆盖 808s、MBDTF、TLOP、ye、Donda 五个重要创作时期。曲目顺序经过精心设计,通过两次"高→低→高"的情绪波浪,最终在 Runaway 中达到顶峰。</p>
+
+    <div class="setlist">
+      <div class="setlist-item">
+        <div class="setlist-num">01</div>
+        <div class="setlist-name">Ultralight Beam</div>
+        <div class="setlist-album">The Life of Pablo (2016)</div>
+        <div class="setlist-duration">~5 min</div>
+      </div>
+      <div class="setlist-item">
+        <div></div>
+        <div class="setlist-note">开场曲。合唱团从弱到强层层递进,一首歌内完成气氛构建</div>
+      </div>
+
+      <div class="setlist-item">
+        <div class="setlist-num">02</div>
+        <div class="setlist-name">Father Stretch My Hands</div>
+        <div class="setlist-album">The Life of Pablo (2016)</div>
+        <div class="setlist-duration">~4 min</div>
+      </div>
+      <div class="setlist-item">
+        <div></div>
+        <div class="setlist-note">Sunday Service 标志性曲目,合唱改编版旋律极强</div>
+      </div>
+
+      <div class="setlist-item">
+        <div class="setlist-num">03</div>
+        <div class="setlist-name">Street Lights</div>
+        <div class="setlist-album">808s & Heartbreak (2008)</div>
+        <div class="setlist-duration">~3 min</div>
+      </div>
+      <div class="setlist-item">
+        <div></div>
+        <div class="setlist-note">呼吸段。旋律优美的慢歌,从前两首的高能量降下来,合唱团展示声乐功力</div>
+      </div>
+
+      <div class="setlist-item">
+        <div class="setlist-num">04</div>
+        <div class="setlist-name">All of the Lights</div>
+        <div class="setlist-album">My Beautiful Dark Twisted Fantasy (2010)</div>
+        <div class="setlist-duration">~5 min</div>
+      </div>
+      <div class="setlist-item">
+        <div></div>
+        <div class="setlist-note">铜管阵 + 鼓点重燃,百人合唱团齐声爆发,重新点燃全场能量</div>
+      </div>
+
+      <div class="setlist-item">
+        <div class="setlist-num">05</div>
+        <div class="setlist-name">Ghost Town</div>
+        <div class="setlist-album">ye (2018)</div>
+        <div class="setlist-duration">~4 min</div>
+      </div>
+      <div class="setlist-item">
+        <div></div>
+        <div class="setlist-note">"I feel free" 百人齐唱,情绪释放段落</div>
+      </div>
+
+      <div class="setlist-item">
+        <div class="setlist-num">06</div>
+        <div class="setlist-name">Come to Life</div>
+        <div class="setlist-album">Donda (2021)</div>
+        <div class="setlist-duration">~5 min</div>
+      </div>
+      <div class="setlist-item">
+        <div></div>
+        <div class="setlist-note">钢琴引导的安静段落,"I'm alive" 百人低吟,尾段情绪渐起</div>
+      </div>
+
+      <div class="setlist-item">
+        <div class="setlist-num">07</div>
+        <div class="setlist-name">Runaway</div>
+        <div class="setlist-album">My Beautiful Dark Twisted Fantasy (2010)</div>
+        <div class="setlist-duration">~9 min</div>
+      </div>
+      <div class="setlist-item">
+        <div></div>
+        <div class="setlist-note">压轴。钢琴单音起奏,百人合唱长达数分钟的哼鸣段落,全场最高潮</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 13px; color: rgba(245,240,232,0.35); font-weight: 300;">
+      预计总时长约 35–45 分钟(不含开场暖场和过渡段落) / 全场约 60–70 分钟
+    </p>
+
+    <!-- Emotion Curve -->
+    <div class="curve-container">
+      <p style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; font-weight: 500;">Emotional Arc</p>
+      <svg class="curve-svg" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Grid lines -->
+        <line x1="40" y1="180" x2="760" y2="180" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <line x1="40" y1="130" x2="760" y2="130" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <line x1="40" y1="80" x2="760" y2="80" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+        <line x1="40" y1="30" x2="760" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+        <!-- Curve: ULB(中→高) → FSMH(高) → Street Lights(低) → AOTL(高) → Ghost Town(中高) → Come to Life(低) → Runaway(中低→高) -->
+        <path d="M 60,100 C 90,80 110,55 140,48 C 170,42 200,40 250,38 C 280,36 310,120 350,155 C 390,170 420,55 460,42 C 500,30 530,65 560,72 C 590,80 620,140 660,150 C 680,155 700,90 730,50 C 745,30 755,20 760,15"
+              fill="none" stroke="url(#curveGradient)" stroke-width="2.5" stroke-linecap="round"/>
+
+        <defs>
+          <linearGradient id="curveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="var(--earth)"/>
+            <stop offset="100%" stop-color="var(--accent)"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Labels -->
+        <text x="140" y="195" fill="rgba(245,240,232,0.3)" font-size="9" text-anchor="middle" font-family="Inter">ULB</text>
+        <text x="250" y="195" fill="rgba(245,240,232,0.3)" font-size="9" text-anchor="middle" font-family="Inter">FSMH</text>
+        <text x="350" y="195" fill="rgba(245,240,232,0.3)" font-size="9" text-anchor="middle" font-family="Inter">Str. Lights</text>
+        <text x="460" y="195" fill="rgba(245,240,232,0.3)" font-size="9" text-anchor="middle" font-family="Inter">All of the Lights</text>
+        <text x="560" y="195" fill="rgba(245,240,232,0.3)" font-size="9" text-anchor="middle" font-family="Inter">Ghost Town</text>
+        <text x="660" y="195" fill="rgba(245,240,232,0.3)" font-size="9" text-anchor="middle" font-family="Inter">Come to Life</text>
+        <text x="760" y="195" fill="rgba(245,240,232,0.3)" font-size="9" text-anchor="middle" font-family="Inter">Runaway</text>
+
+        <!-- Dots -->
+        <circle cx="140" cy="48" r="3" fill="var(--accent)"/>
+        <circle cx="250" cy="38" r="3" fill="var(--accent)"/>
+        <circle cx="350" cy="155" r="3" fill="var(--accent)"/>
+        <circle cx="460" cy="42" r="3" fill="var(--accent)"/>
+        <circle cx="560" cy="72" r="3" fill="var(--accent)"/>
+        <circle cx="660" cy="150" r="3" fill="var(--accent)"/>
+        <circle cx="760" cy="15" r="4" fill="var(--accent)"/>
+
+        <!-- Axis labels -->
+        <text x="20" y="35" fill="rgba(245,240,232,0.2)" font-size="8" text-anchor="middle" font-family="Inter">HIGH</text>
+        <text x="20" y="185" fill="rgba(245,240,232,0.2)" font-size="8" text-anchor="middle" font-family="Inter">LOW</text>
+      </svg>
+      <p style="font-size: 12px; color: rgba(245,240,232,0.3); margin-top: 16px; font-weight: 300;">高能开场 → Street Lights 沉静呼吸 → All of the Lights 铜管重燃 → Come to Life 再次沉入 → Runaway 终极攀升至最高潮</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 视觉与形式 -->
+<section class="section">
+  <div class="section-label">04 / Visual & Format</div>
+  <h2 class="section-title">视觉风格与演出形式</h2>
+  <p class="section-text">
+    致敬 Sunday Service 的极简美学。统一着装、圆形站位、自然光线、无花哨舞台——让音乐本身成为唯一的焦点。
+  </p>
+
+  <div class="grid-2">
+    <div>
+      <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 20px;">演出形式</h4>
+      <ul style="list-style: none; font-size: 14px; line-height: 2.4; color: var(--muted); font-weight: 300;">
+        <li>— 合唱团围成同心圆 / 半圆形</li>
+        <li>— 乐队居中(钢琴、鼓、贝斯、键盘)</li>
+        <li>— 不设传统舞台,与观众同一平面</li>
+        <li>— 观众自由站立或席地而坐</li>
+        <li>— 不设座位,开放式体验</li>
+        <li>— 自然光为主,极简灯光辅助</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 20px;">着装方案</h4>
+      <ul style="list-style: none; font-size: 14px; line-height: 2.4; color: var(--muted); font-weight: 300;">
+        <li>— 全员统一色系(大地色 / 米白 / 沙色)</li>
+        <li>— Oversize 廓形上衣</li>
+        <li>— 舒适宽松的裤装</li>
+        <li>— 运动鞋(白色或大地色系)</li>
+        <li>— 整体风格:极简、统一、去个性化</li>
+        <li>— 不佩戴过多饰品和配件</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Color Palette -->
+  <h4 style="font-size: 16px; font-weight: 700; margin-top: 60px; margin-bottom: 12px;">色彩系统</h4>
+  <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px; font-weight: 300;">参考 Sunday Service 经典的大地色调</p>
+  <div class="visual-grid">
+    <div class="color-block" style="background: #F5F0E8;">
+      <span class="color-name" style="color: var(--muted);">Cream</span>
+    </div>
+    <div class="color-block" style="background: #E8DFD0;">
+      <span class="color-name" style="color: var(--muted);">Sand</span>
+    </div>
+    <div class="color-block" style="background: #C4A97D;">
+      <span class="color-name" style="color: #fff;">Earth</span>
+    </div>
+    <div class="color-block" style="background: #A89279;">
+      <span class="color-name" style="color: #fff;">Clay</span>
+    </div>
+    <div class="color-block" style="background: #2C2822;">
+      <span class="color-name" style="color: rgba(255,255,255,0.5);">Charcoal</span>
+    </div>
+  </div>
+</section>
+
+<!-- 05 舞台设计 -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--accent);">05 / Stage Design</div>
+    <h2 class="section-title">舞台布局设计</h2>
+    <p class="section-text">
+      采用三环同心圆结构,由内而外形成专业核心层、社会参与层、粉丝互动层三个圈层。三环外围为自由观众区。整体设计兼顾音乐品质和现场氛围,从中心向外辐射出层层递进的能量场。
+    </p>
+
+    <div class="stage-diagram-container">
+      <svg class="stage-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Ground plane gradient - bird's eye view of grass/ground -->
+          <radialGradient id="groundGrad" cx="50%" cy="50%" r="55%">
+            <stop offset="0%" stop-color="#2a2620"/>
+            <stop offset="40%" stop-color="#222019"/>
+            <stop offset="75%" stop-color="#1c1a15"/>
+            <stop offset="100%" stop-color="#161410"/>
+          </radialGradient>
+
+          <!-- Golden light source from center -->
+          <radialGradient id="centerLight" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(220,190,130,0.35)"/>
+            <stop offset="20%" stop-color="rgba(196,169,125,0.18)"/>
+            <stop offset="50%" stop-color="rgba(196,169,125,0.06)"/>
+            <stop offset="100%" stop-color="rgba(196,169,125,0)"/>
+          </radialGradient>
+
+          <!-- Ring glow effects -->
+          <radialGradient id="ring1Glow" cx="50%" cy="50%" r="50%">
+            <stop offset="60%" stop-color="rgba(196,169,125,0.12)"/>
+            <stop offset="100%" stop-color="rgba(196,169,125,0)"/>
+          </radialGradient>
+          <radialGradient id="ring2Glow" cx="50%" cy="50%" r="50%">
+            <stop offset="60%" stop-color="rgba(168,146,121,0.08)"/>
+            <stop offset="100%" stop-color="rgba(168,146,121,0)"/>
+          </radialGradient>
+
+          <!-- Band center warm glow -->
+          <radialGradient id="bandGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(230,200,140,0.4)"/>
+            <stop offset="40%" stop-color="rgba(196,169,125,0.2)"/>
+            <stop offset="100%" stop-color="rgba(196,169,125,0)"/>
+          </radialGradient>
+
+          <!-- Human figure (standing, arms slightly out - singing) -->
+          <symbol id="person" viewBox="0 0 10 24">
+            <!-- Head -->
+            <circle cx="5" cy="3" r="2.5"/>
+            <!-- Body -->
+            <line x1="5" y1="5.5" x2="5" y2="15" stroke-width="1.8" stroke-linecap="round"/>
+            <!-- Arms slightly raised (singing/worshipping pose) -->
+            <line x1="5" y1="8" x2="1.5" y2="11.5" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="5" y1="8" x2="8.5" y2="11.5" stroke-width="1.3" stroke-linecap="round"/>
+            <!-- Legs -->
+            <line x1="5" y1="15" x2="3" y2="22" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="5" y1="15" x2="7" y2="22" stroke-width="1.3" stroke-linecap="round"/>
+          </symbol>
+
+          <!-- Human figure with arms raised high (worship pose) -->
+          <symbol id="person-arms-up" viewBox="0 0 10 24">
+            <circle cx="5" cy="3" r="2.5"/>
+            <line x1="5" y1="5.5" x2="5" y2="15" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="5" y1="7.5" x2="1.5" y2="4" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="5" y1="7.5" x2="8.5" y2="4" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="5" y1="15" x2="3" y2="22" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="5" y1="15" x2="7" y2="22" stroke-width="1.3" stroke-linecap="round"/>
+          </symbol>
+
+          <!-- Person standing still -->
+          <symbol id="person-still" viewBox="0 0 10 24">
+            <circle cx="5" cy="3" r="2.5"/>
+            <line x1="5" y1="5.5" x2="5" y2="15" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="5" y1="8" x2="2.5" y2="13" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="5" y1="8" x2="7.5" y2="13" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="5" y1="15" x2="3.5" y2="22" stroke-width="1.3" stroke-linecap="round"/>
+            <line x1="5" y1="15" x2="6.5" y2="22" stroke-width="1.3" stroke-linecap="round"/>
+          </symbol>
+
+          <!-- Gaussian blur for glow effects -->
+          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="8" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="20" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <filter id="tinyGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- ====== GROUND & ATMOSPHERE ====== -->
+        <!-- Ground plane -->
+        <rect x="0" y="0" width="800" height="800" fill="url(#groundGrad)"/>
+
+        <!-- Subtle ground texture circles (like grass patches from above) -->
+        <circle cx="150" cy="120" r="40" fill="rgba(40,36,28,0.4)" filter="url(#bigGlow)"/>
+        <circle cx="650" cy="680" r="50" fill="rgba(40,36,28,0.3)" filter="url(#bigGlow)"/>
+        <circle cx="680" cy="150" r="35" fill="rgba(40,36,28,0.3)" filter="url(#bigGlow)"/>
+        <circle cx="120" cy="650" r="45" fill="rgba(40,36,28,0.35)" filter="url(#bigGlow)"/>
+
+        <!-- Main golden light radiating from center -->
+        <circle cx="400" cy="400" r="380" fill="url(#centerLight)"/>
+
+        <!-- Light rays emanating from center (subtle) -->
+        <g opacity="0.06">
+          <line x1="400" y1="400" x2="100" y2="50" stroke="#C4A97D" stroke-width="1.5"/>
+          <line x1="400" y1="400" x2="700" y2="80" stroke="#C4A97D" stroke-width="1"/>
+          <line x1="400" y1="400" x2="780" y2="350" stroke="#C4A97D" stroke-width="1.2"/>
+          <line x1="400" y1="400" x2="750" y2="700" stroke="#C4A97D" stroke-width="1"/>
+          <line x1="400" y1="400" x2="50" y2="600" stroke="#C4A97D" stroke-width="1.3"/>
+          <line x1="400" y1="400" x2="200" y2="780" stroke="#C4A97D" stroke-width="0.8"/>
+          <line x1="400" y1="400" x2="30" y2="280" stroke="#C4A97D" stroke-width="0.8"/>
+          <line x1="400" y1="400" x2="600" y2="770" stroke="#C4A97D" stroke-width="1"/>
+        </g>
+
+        <!-- ====== RING 3: FAN ZONE (~200 fans) ====== -->
+        <!-- Outer boundary glow -->
+        <circle cx="400" cy="400" r="350" fill="none" stroke="rgba(196,169,125,0.08)" stroke-width="40" filter="url(#bigGlow)"/>
+        <!-- Dashed boundary -->
+        <circle cx="400" cy="400" r="348" fill="none" stroke="rgba(196,169,125,0.2)" stroke-width="1" stroke-dasharray="10 6"/>
+
+        <!-- Inner barrier (1m gap) -->
+        <circle cx="400" cy="400" r="285" fill="none" stroke="rgba(196,169,125,0.35)" stroke-width="1.5" stroke-dasharray="14 5"/>
+
+        <!-- Ring 3 label -->
+        <text x="400" y="72" fill="rgba(196,169,125,0.55)" font-size="10" text-anchor="middle" font-family="Inter" font-weight="500" letter-spacing="4">RING 3 / FAN ZONE / ~200</text>
+
+        <!-- Gap indicator -->
+        <text x="686" y="388" fill="rgba(196,169,125,0.45)" font-size="9" font-family="Inter" font-weight="300">~1m</text>
+        <line x1="680" y1="392" x2="680" y2="410" stroke="rgba(196,169,125,0.3)" stroke-width="0.5"/>
+        <line x1="690" y1="392" x2="690" y2="410" stroke="rgba(196,169,125,0.3)" stroke-width="0.5"/>
+
+        <!-- Fan silhouettes scattered organically in Ring 3 zone -->
+        <g fill="rgba(245,240,232,0.18)" stroke="rgba(245,240,232,0.18)">
+          <!-- Top sector fans -->
+          <use href="#person-still" x="385" y="80" width="8" height="19"/>
+          <use href="#person-arms-up" x="412" y="85" width="7" height="17"/>
+          <use href="#person-still" x="355" y="84" width="7" height="17"/>
+          <use href="#person" x="440" y="95" width="8" height="19"/>
+          <use href="#person-still" x="325" y="92" width="7" height="17"/>
+          <use href="#person-arms-up" x="470" y="108" width="7" height="17"/>
+          <use href="#person-still" x="295" y="105" width="8" height="19"/>
+          <use href="#person" x="500" y="124" width="7" height="17"/>
+          <use href="#person-still" x="265" y="120" width="7" height="17"/>
+          <use href="#person-arms-up" x="528" y="142" width="7" height="17"/>
+          <use href="#person" x="238" y="138" width="8" height="19"/>
+
+          <!-- Top-right sector -->
+          <use href="#person-still" x="555" y="165" width="7" height="17"/>
+          <use href="#person" x="578" y="192" width="7" height="17"/>
+          <use href="#person-arms-up" x="598" y="222" width="7" height="17"/>
+          <use href="#person-still" x="614" y="255" width="8" height="19"/>
+          <use href="#person" x="624" y="290" width="7" height="17"/>
+
+          <!-- Right sector -->
+          <use href="#person-still" x="630" y="328" width="7" height="17"/>
+          <use href="#person-arms-up" x="633" y="365" width="8" height="19"/>
+          <use href="#person" x="632" y="400" width="7" height="17"/>
+          <use href="#person-still" x="628" y="435" width="7" height="17"/>
+          <use href="#person-arms-up" x="620" y="468" width="7" height="17"/>
+
+          <!-- Bottom-right sector -->
+          <use href="#person" x="606" y="502" width="7" height="17"/>
+          <use href="#person-still" x="588" y="535" width="8" height="19"/>
+          <use href="#person-arms-up" x="565" y="562" width="7" height="17"/>
+          <use href="#person" x="538" y="585" width="7" height="17"/>
+          <use href="#person-still" x="508" y="604" width="7" height="17"/>
+
+          <!-- Bottom sector -->
+          <use href="#person-arms-up" x="475" y="618" width="7" height="17"/>
+          <use href="#person-still" x="442" y="628" width="8" height="19"/>
+          <use href="#person" x="410" y="632" width="7" height="17"/>
+          <use href="#person-still" x="378" y="630" width="7" height="17"/>
+          <use href="#person-arms-up" x="345" y="625" width="7" height="17"/>
+          <use href="#person" x="312" y="618" width="8" height="19"/>
+          <use href="#person-still" x="280" y="606" width="7" height="17"/>
+          <use href="#person-arms-up" x="252" y="590" width="7" height="17"/>
+
+          <!-- Bottom-left sector -->
+          <use href="#person" x="225" y="570" width="7" height="17"/>
+          <use href="#person-still" x="202" y="545" width="7" height="17"/>
+          <use href="#person-arms-up" x="182" y="516" width="8" height="19"/>
+          <use href="#person" x="168" y="485" width="7" height="17"/>
+
+          <!-- Left sector -->
+          <use href="#person-still" x="155" y="450" width="7" height="17"/>
+          <use href="#person-arms-up" x="150" y="415" width="7" height="17"/>
+          <use href="#person" x="148" y="380" width="8" height="19"/>
+          <use href="#person-still" x="150" y="345" width="7" height="17"/>
+          <use href="#person-arms-up" x="154" y="310" width="7" height="17"/>
+          <use href="#person" x="162" y="278" width="7" height="17"/>
+
+          <!-- Top-left sector -->
+          <use href="#person-still" x="174" y="248" width="8" height="19"/>
+          <use href="#person" x="190" y="220" width="7" height="17"/>
+          <use href="#person-arms-up" x="210" y="195" width="7" height="17"/>
+          <use href="#person-still" x="232" y="172" width="7" height="17"/>
+        </g>
+
+        <!-- ====== RING 2: COMMUNITY CHOIR (60-70) ====== -->
+        <!-- Ring 2 glow halo -->
+        <circle cx="400" cy="400" r="260" fill="none" stroke="rgba(168,146,121,0.07)" stroke-width="60" filter="url(#bigGlow)"/>
+        <!-- Ring 2 boundary -->
+        <circle cx="400" cy="400" r="262" fill="none" stroke="rgba(168,146,121,0.2)" stroke-width="0.8"/>
+
+        <!-- Ring 2 label -->
+        <text x="400" y="155" fill="rgba(168,146,121,0.65)" font-size="10" text-anchor="middle" font-family="Inter" font-weight="500" letter-spacing="4">RING 2 / COMMUNITY / 60-70</text>
+
+        <!-- Community choir - human figures in two concentric rings -->
+        <!-- Outer ring of Ring 2 (~35 people) -->
+        <g fill="rgba(198,176,142,0.5)" stroke="rgba(198,176,142,0.5)">
+          <!-- Top -->
+          <use href="#person" x="393" y="162" width="9" height="22"/>
+          <use href="#person-arms-up" x="423" y="165" width="9" height="22"/>
+          <use href="#person" x="363" y="164" width="9" height="22"/>
+          <use href="#person-arms-up" x="453" y="172" width="9" height="22"/>
+          <use href="#person" x="333" y="170" width="9" height="22"/>
+          <use href="#person-arms-up" x="483" y="184" width="9" height="22"/>
+          <use href="#person" x="303" y="182" width="9" height="22"/>
+          <!-- Top-right -->
+          <use href="#person-arms-up" x="510" y="200" width="9" height="22"/>
+          <use href="#person" x="534" y="222" width="9" height="22"/>
+          <use href="#person-arms-up" x="554" y="248" width="9" height="22"/>
+          <use href="#person" x="568" y="278" width="9" height="22"/>
+          <use href="#person-arms-up" x="576" y="310" width="9" height="22"/>
+          <!-- Right -->
+          <use href="#person" x="580" y="344" width="9" height="22"/>
+          <use href="#person-arms-up" x="580" y="378" width="9" height="22"/>
+          <use href="#person" x="576" y="412" width="9" height="22"/>
+          <use href="#person-arms-up" x="568" y="445" width="9" height="22"/>
+          <!-- Bottom-right -->
+          <use href="#person" x="554" y="475" width="9" height="22"/>
+          <use href="#person-arms-up" x="534" y="500" width="9" height="22"/>
+          <use href="#person" x="510" y="522" width="9" height="22"/>
+          <!-- Bottom -->
+          <use href="#person-arms-up" x="483" y="538" width="9" height="22"/>
+          <use href="#person" x="453" y="550" width="9" height="22"/>
+          <use href="#person-arms-up" x="423" y="556" width="9" height="22"/>
+          <use href="#person" x="393" y="558" width="9" height="22"/>
+          <use href="#person-arms-up" x="363" y="556" width="9" height="22"/>
+          <use href="#person" x="333" y="550" width="9" height="22"/>
+          <use href="#person-arms-up" x="303" y="540" width="9" height="22"/>
+          <!-- Bottom-left -->
+          <use href="#person" x="278" y="524" width="9" height="22"/>
+          <use href="#person-arms-up" x="256" y="502" width="9" height="22"/>
+          <use href="#person" x="238" y="476" width="9" height="22"/>
+          <!-- Left -->
+          <use href="#person-arms-up" x="224" y="446" width="9" height="22"/>
+          <use href="#person" x="216" y="414" width="9" height="22"/>
+          <use href="#person-arms-up" x="212" y="380" width="9" height="22"/>
+          <use href="#person" x="212" y="346" width="9" height="22"/>
+          <use href="#person-arms-up" x="216" y="312" width="9" height="22"/>
+          <use href="#person" x="224" y="280" width="9" height="22"/>
+          <!-- Top-left -->
+          <use href="#person-arms-up" x="238" y="250" width="9" height="22"/>
+          <use href="#person" x="256" y="224" width="9" height="22"/>
+          <use href="#person-arms-up" x="278" y="202" width="9" height="22"/>
+        </g>
+
+        <!-- Inner ring of Ring 2 (~30 people, slightly smaller) -->
+        <g fill="rgba(178,156,122,0.4)" stroke="rgba(178,156,122,0.4)">
+          <use href="#person" x="393" y="195" width="8" height="20"/>
+          <use href="#person-arms-up" x="425" y="198" width="8" height="20"/>
+          <use href="#person" x="361" y="197" width="8" height="20"/>
+          <use href="#person-arms-up" x="456" y="208" width="8" height="20"/>
+          <use href="#person" x="330" y="206" width="8" height="20"/>
+          <use href="#person-arms-up" x="484" y="224" width="8" height="20"/>
+          <use href="#person" x="306" y="220" width="8" height="20"/>
+          <use href="#person-arms-up" x="508" y="246" width="8" height="20"/>
+          <use href="#person" x="284" y="242" width="8" height="20"/>
+          <use href="#person-arms-up" x="528" y="274" width="8" height="20"/>
+          <use href="#person" x="264" y="270" width="8" height="20"/>
+          <use href="#person-arms-up" x="540" y="308" width="8" height="20"/>
+          <use href="#person" x="254" y="304" width="8" height="20"/>
+          <use href="#person-arms-up" x="544" y="380" width="8" height="20"/>
+          <use href="#person" x="250" y="376" width="8" height="20"/>
+          <use href="#person-arms-up" x="540" y="414" width="8" height="20"/>
+          <use href="#person" x="254" y="410" width="8" height="20"/>
+          <use href="#person-arms-up" x="528" y="446" width="8" height="20"/>
+          <use href="#person" x="264" y="442" width="8" height="20"/>
+          <use href="#person-arms-up" x="508" y="474" width="8" height="20"/>
+          <use href="#person" x="284" y="470" width="8" height="20"/>
+          <use href="#person-arms-up" x="484" y="496" width="8" height="20"/>
+          <use href="#person" x="306" y="492" width="8" height="20"/>
+          <use href="#person-arms-up" x="456" y="512" width="8" height="20"/>
+          <use href="#person" x="330" y="508" width="8" height="20"/>
+          <use href="#person-arms-up" x="425" y="520" width="8" height="20"/>
+          <use href="#person" x="361" y="518" width="8" height="20"/>
+          <use href="#person-arms-up" x="393" y="522" width="8" height="20"/>
+        </g>
+
+        <!-- ====== RING 1: PRO CHOIR (~30) ====== -->
+        <!-- Ring 1 inner glow -->
+        <circle cx="400" cy="400" r="145" fill="none" stroke="rgba(196,169,125,0.1)" stroke-width="45" filter="url(#bigGlow)"/>
+        <!-- Ring 1 boundary -->
+        <circle cx="400" cy="400" r="142" fill="none" stroke="rgba(196,169,125,0.3)" stroke-width="1"/>
+
+        <!-- Ring 1 label -->
+        <text x="400" y="275" fill="rgba(196,169,125,0.75)" font-size="10" text-anchor="middle" font-family="Inter" font-weight="600" letter-spacing="4">RING 1 / PRO CHOIR / ~30</text>
+
+        <!-- Pro choir - brighter, more prominent figures -->
+        <g fill="rgba(220,195,150,0.7)" stroke="rgba(220,195,150,0.7)">
+          <!-- 22 people around the ring -->
+          <use href="#person-arms-up" x="395" y="280" width="10" height="24"/>
+          <use href="#person" x="425" y="283" width="10" height="24"/>
+          <use href="#person-arms-up" x="365" y="282" width="10" height="24"/>
+          <use href="#person" x="454" y="292" width="10" height="24"/>
+          <use href="#person-arms-up" x="336" y="290" width="10" height="24"/>
+          <use href="#person" x="478" y="308" width="10" height="24"/>
+          <use href="#person-arms-up" x="314" y="306" width="10" height="24"/>
+          <use href="#person" x="496" y="330" width="10" height="24"/>
+          <use href="#person-arms-up" x="298" y="328" width="10" height="24"/>
+          <use href="#person" x="504" y="358" width="10" height="24"/>
+          <use href="#person-arms-up" x="290" y="356" width="10" height="24"/>
+          <!-- Bottom half -->
+          <use href="#person" x="504" y="392" width="10" height="24"/>
+          <use href="#person-arms-up" x="290" y="390" width="10" height="24"/>
+          <use href="#person" x="496" y="422" width="10" height="24"/>
+          <use href="#person-arms-up" x="298" y="420" width="10" height="24"/>
+          <use href="#person" x="478" y="448" width="10" height="24"/>
+          <use href="#person-arms-up" x="314" y="446" width="10" height="24"/>
+          <use href="#person" x="454" y="468" width="10" height="24"/>
+          <use href="#person-arms-up" x="336" y="466" width="10" height="24"/>
+          <use href="#person" x="425" y="480" width="10" height="24"/>
+          <use href="#person-arms-up" x="365" y="478" width="10" height="24"/>
+          <use href="#person" x="395" y="484" width="10" height="24"/>
+        </g>
+        <!-- Inner 8 pro choir members -->
+        <g fill="rgba(210,185,140,0.55)" stroke="rgba(210,185,140,0.55)">
+          <use href="#person-arms-up" x="418" y="305" width="9" height="22"/>
+          <use href="#person" x="460" y="345" width="9" height="22"/>
+          <use href="#person-arms-up" x="455" y="395" width="9" height="22"/>
+          <use href="#person" x="418" y="440" width="9" height="22"/>
+          <use href="#person-arms-up" x="374" y="442" width="9" height="22"/>
+          <use href="#person" x="332" y="398" width="9" height="22"/>
+          <use href="#person-arms-up" x="330" y="348" width="9" height="22"/>
+          <use href="#person" x="372" y="303" width="9" height="22"/>
+        </g>
+
+        <!-- ====== CENTER: BAND ====== -->
+        <!-- Warm center light pool -->
+        <circle cx="400" cy="400" r="68" fill="url(#bandGlow)" style="animation: breathe 4s ease-in-out infinite;"/>
+        <circle cx="400" cy="400" r="58" fill="rgba(230,200,140,0.06)" stroke="rgba(196,169,125,0.45)" stroke-width="1.2"/>
+
+        <!-- Band members as figures with instruments -->
+        <g fill="rgba(230,200,140,0.85)" stroke="rgba(230,200,140,0.85)">
+          <!-- Pianist (left-center) -->
+          <use href="#person-still" x="370" y="378" width="9" height="22"/>
+          <!-- Keyboard symbol -->
+          <rect x="368" y="400" width="14" height="6" rx="1" fill="rgba(230,200,140,0.5)" stroke="none"/>
+
+          <!-- Drummer (right-center) -->
+          <use href="#person-still" x="415" y="378" width="9" height="22"/>
+          <!-- Drum symbol -->
+          <circle cx="420" cy="403" r="5" fill="none" stroke="rgba(230,200,140,0.5)" stroke-width="0.8"/>
+
+          <!-- Bassist (front) -->
+          <use href="#person-still" x="393" y="393" width="9" height="22"/>
+
+          <!-- Keys player (back) -->
+          <use href="#person-still" x="393" y="363" width="9" height="22"/>
+        </g>
+
+        <!-- Center label -->
+        <text x="400" y="432" fill="rgba(230,200,140,0.9)" font-size="9" text-anchor="middle" font-family="Inter" font-weight="700" letter-spacing="3">BAND</text>
+
+        <!-- ====== ATMOSPHERIC PARTICLES ====== -->
+        <!-- Golden dust/light particles floating upward from center -->
+        <g filter="url(#tinyGlow)">
+          <circle cx="380" cy="360" r="1.5" fill="rgba(230,200,140,0.6)"><animate attributeName="cy" values="360;320" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="420" cy="380" r="1" fill="rgba(230,200,140,0.5)"><animate attributeName="cy" values="380;340" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0" dur="4s" repeatCount="indefinite"/></circle>
+          <circle cx="395" cy="370" r="1.2" fill="rgba(230,200,140,0.7)"><animate attributeName="cy" values="370;325" dur="3.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0" dur="3.5s" repeatCount="indefinite"/></circle>
+          <circle cx="410" cy="355" r="0.8" fill="rgba(230,200,140,0.4)"><animate attributeName="cy" values="355;310" dur="5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0" dur="5s" repeatCount="indefinite"/></circle>
+          <circle cx="388" cy="390" r="1.3" fill="rgba(230,200,140,0.5)"><animate attributeName="cy" values="390;345" dur="4.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0" dur="4.2s" repeatCount="indefinite"/></circle>
+          <circle cx="430" cy="365" r="0.9" fill="rgba(230,200,140,0.4)"><animate attributeName="cy" values="365;318" dur="3.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0" dur="3.8s" repeatCount="indefinite"/></circle>
+          <circle cx="370" cy="375" r="1.1" fill="rgba(230,200,140,0.55)"><animate attributeName="cy" values="375;330" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.55;0" dur="4.5s" repeatCount="indefinite"/></circle>
+        </g>
+
+        <!-- Scattered ambient light dots around the scene -->
+        <g filter="url(#tinyGlow)" opacity="0.3">
+          <circle cx="200" cy="200" r="1.5" fill="#C4A97D"/>
+          <circle cx="600" cy="180" r="1" fill="#C4A97D"/>
+          <circle cx="550" cy="620" r="1.2" fill="#C4A97D"/>
+          <circle cx="180" cy="580" r="0.8" fill="#C4A97D"/>
+          <circle cx="320" cy="100" r="1" fill="#C4A97D"/>
+          <circle cx="680" cy="400" r="1.3" fill="#C4A97D"/>
+          <circle cx="120" cy="350" r="0.9" fill="#C4A97D"/>
+          <circle cx="480" cy="700" r="1.1" fill="#C4A97D"/>
+          <circle cx="700" cy="550" r="0.7" fill="#C4A97D"/>
+          <circle cx="100" cy="500" r="1" fill="#C4A97D"/>
+        </g>
+
+        <!-- ====== OUTER AUDIENCE (beyond Ring 3) ====== -->
+        <!-- Faint audience silhouettes at edges -->
+        <g fill="rgba(245,240,232,0.08)" stroke="rgba(245,240,232,0.08)">
+          <!-- Scattered around the perimeter -->
+          <use href="#person-still" x="50" y="200" width="6" height="15"/>
+          <use href="#person-still" x="70" y="320" width="6" height="15"/>
+          <use href="#person-still" x="55" y="440" width="6" height="15"/>
+          <use href="#person-still" x="80" y="560" width="6" height="15"/>
+
+          <use href="#person-still" x="720" y="220" width="6" height="15"/>
+          <use href="#person-still" x="730" y="350" width="6" height="15"/>
+          <use href="#person-still" x="725" y="470" width="6" height="15"/>
+          <use href="#person-still" x="710" y="590" width="6" height="15"/>
+
+          <use href="#person-still" x="200" y="740" width="6" height="15"/>
+          <use href="#person-still" x="350" y="750" width="6" height="15"/>
+          <use href="#person-still" x="450" y="748" width="6" height="15"/>
+          <use href="#person-still" x="600" y="735" width="6" height="15"/>
+
+          <use href="#person-still" x="180" y="42" width="6" height="15"/>
+          <use href="#person-still" x="340" y="35" width="6" height="15"/>
+          <use href="#person-still" x="480" y="38" width="6" height="15"/>
+          <use href="#person-still" x="620" y="48" width="6" height="15"/>
+        </g>
+
+        <!-- Audience labels at corners -->
+        <text x="80" y="780" fill="rgba(245,240,232,0.15)" font-size="10" font-family="Inter" letter-spacing="5" font-weight="300">FREE AUDIENCE</text>
+        <text x="570" y="780" fill="rgba(245,240,232,0.15)" font-size="10" font-family="Inter" letter-spacing="5" font-weight="300">FREE AUDIENCE</text>
+        <text x="80" y="22" fill="rgba(245,240,232,0.15)" font-size="10" font-family="Inter" letter-spacing="5" font-weight="300">FREE AUDIENCE</text>
+        <text x="570" y="22" fill="rgba(245,240,232,0.15)" font-size="10" font-family="Inter" letter-spacing="5" font-weight="300">FREE AUDIENCE</text>
+
+        <!-- ====== DIMENSION INDICATOR ====== -->
+        <line x1="60" y1="765" x2="740" y2="765" stroke="rgba(196,169,125,0.15)" stroke-width="0.5"/>
+        <line x1="60" y1="760" x2="60" y2="770" stroke="rgba(196,169,125,0.15)" stroke-width="0.5"/>
+        <line x1="740" y1="760" x2="740" y2="770" stroke="rgba(196,169,125,0.15)" stroke-width="0.5"/>
+        <text x="400" y="760" fill="rgba(196,169,125,0.25)" font-size="9" text-anchor="middle" font-family="Inter">~30-40m overall diameter (depending on venue)</text>
+
+      </svg>
+
+      <!-- Legend -->
+      <div class="stage-legend">
+        <div class="legend-item">
+          <div class="legend-dot" style="background: rgba(196,169,125,0.7);"></div>
+          <div>
+            <div class="legend-title" style="color: var(--warm-white);">Center / BAND</div>
+            <div class="legend-desc" style="color: rgba(245,240,232,0.4);">乐队核心区。钢琴、鼓组、贝斯、键盘居中,所有声音从这里辐射</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background: rgba(196,169,125,0.55);"></div>
+          <div>
+            <div class="legend-title" style="color: var(--warm-white);">Ring 1 / 专业合唱团 (~30人)</div>
+            <div class="legend-desc" style="color: rgba(245,240,232,0.4);">音乐专业队员,多声部核心力量。负责音准兜底,确保整体音乐品质。这一环是整场演出的声乐基石</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot" style="background: rgba(168,146,121,0.45);"></div>
+          <div>
+            <div class="legend-title" style="color: var(--warm-white);">Ring 2 / 社区合唱团 (60-70人)</div>
+            <div class="legend-desc" style="color: rgba(245,240,232,0.4);">经过排练的社会招募人员。可以更加活泼自由,展示生命力和感染力。人数优势营造声浪厚度</div>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-ring" style="border-color: rgba(196,169,125,0.3);"></div>
+          <div>
+            <div class="legend-title" style="color: var(--warm-white);">Ring 3 / 粉丝互动区 (~200人)</div>
+            <div class="legend-desc" style="color: rgba(245,240,232,0.4);">与二环间隔约1米,拉线围住。线上预热招募,让 Ye 的狂热粉丝慕名而来参与其中。三环外才是自由观众区</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-dimensions">
+        一环半径约 5-6m / 二环半径约 12-14m / 隔离带 ~1m / 三环半径约 16-18m<br>
+        三环外为自由观众区,不设限制
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 招募策略 -->
+<section class="section">
+  <div class="section-label">06 / Recruitment</div>
+  <h2 class="section-title">招募策略</h2>
+  <p class="section-text">
+    采用分阶段招募策略:先组建核心团队打磨内容,再以排练花絮作为宣发素材吸引社会招募。用内容带动招募,用招募扩大声量。
+  </p>
+
+  <!-- Phase Timeline -->
+  <div style="margin-top: 60px;">
+
+    <!-- Phase 1 -->
+    <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px; padding-bottom: 40px; border-bottom: 1px solid rgba(26,23,20,0.08);">
+      <div>
+        <div style="font-size: 42px; font-weight: 900; color: var(--accent); line-height: 1;">P1</div>
+      </div>
+      <div>
+        <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">核心团队组建</h4>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 20px;">
+          与乐团方合作,确定一环 ~30 名专业合唱成员。这批人是整场演出的声乐基石,必须具备扎实的音乐功底。
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div style="background: var(--warm-white); padding: 20px; border-radius: 2px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--earth); letter-spacing: 2px; margin-bottom: 8px;">来源</div>
+            <div style="font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300;">
+              乐团现有成员<br>
+              音乐院校学生<br>
+              专业合唱团成员
+            </div>
+          </div>
+          <div style="background: var(--warm-white); padding: 20px; border-radius: 2px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--earth); letter-spacing: 2px; margin-bottom: 8px;">标准</div>
+            <div style="font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300;">
+              具备五线谱识读能力<br>
+              多声部演唱经验<br>
+              能够稳定参与排练
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px; padding: 40px 0; border-bottom: 1px solid rgba(26,23,20,0.08);">
+      <div>
+        <div style="font-size: 42px; font-weight: 900; color: var(--accent); line-height: 1;">P2</div>
+      </div>
+      <div>
+        <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">排练 + 内容生产</h4>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 20px;">
+          核心团队开始排练,同步拍摄高质量排练花絮。这些内容将作为宣发素材,为下一阶段的社会招募蓄势。
+        </p>
+        <div style="background: var(--warm-white); padding: 24px; border-radius: 2px;">
+          <div style="font-size: 12px; font-weight: 600; color: var(--earth); letter-spacing: 2px; margin-bottom: 12px;">内容产出</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div style="font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300;">
+              <strong style="color: var(--charcoal);">短视频素材</strong><br>
+              排练片段、合唱特写<br>
+              幕后花絮、团队日常<br>
+              单曲 Highlight Clip
+            </div>
+            <div style="font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300;">
+              <strong style="color: var(--charcoal);">投放渠道</strong><br>
+              小红书(图文 + 视频)<br>
+              抖音(短视频 + 直播排练)<br>
+              微信视频号 / 朋友圈扩散
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px; padding: 40px 0; border-bottom: 1px solid rgba(26,23,20,0.08);">
+      <div>
+        <div style="font-size: 42px; font-weight: 900; color: var(--accent); line-height: 1;">P3</div>
+      </div>
+      <div>
+        <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">社会招募(二环 60-70人)</h4>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 20px;">
+          通过前期宣发内容吸引的报名者中筛选。这一环的人不需要专业级水平,但需要有基本的音乐素养和真正的热情。
+        </p>
+        <div style="background: var(--warm-white); padding: 24px; border-radius: 2px;">
+          <div style="font-size: 12px; font-weight: 600; color: var(--earth); letter-spacing: 2px; margin-bottom: 12px;">筛选标准(优先级排序)</div>
+          <div style="display: grid; grid-template-columns: 40px 1fr; gap: 8px 16px; font-size: 14px; line-height: 2;">
+            <div style="font-weight: 800; color: var(--accent); text-align: right;">01</div>
+            <div style="font-weight: 300; color: var(--charcoal);"><strong>热爱为第一要素</strong> — 对音乐和这件事本身有真实的热情,愿意投入时间排练</div>
+            <div style="font-weight: 800; color: var(--accent); text-align: right;">02</div>
+            <div style="font-weight: 300; color: var(--charcoal);"><strong>Ye 的粉丝</strong> — 熟悉 Kanye 的音乐,理解 Sunday Service 的精神内核</div>
+            <div style="font-weight: 800; color: var(--accent); text-align: right;">03</div>
+            <div style="font-weight: 300; color: var(--charcoal);"><strong>会看五线谱</strong> — 具备基本的乐理知识,能跟上排练进度</div>
+            <div style="font-weight: 800; color: var(--accent); text-align: right;">04</div>
+            <div style="font-weight: 300; color: var(--charcoal);"><strong>时间承诺</strong> — 能够参与正式演出前的多次集体排练</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div style="display: grid; grid-template-columns: 80px 1fr; gap: 30px; padding-top: 40px;">
+      <div>
+        <div style="font-size: 42px; font-weight: 900; color: var(--accent); line-height: 1;">P4</div>
+      </div>
+      <div>
+        <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">粉丝预热(三环 ~200人)</h4>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 20px;">
+          演出前通过线上预热招募三环参与者。这一环不需要排练,但需要通过报名筛选,确保是真正的 Ye 粉丝和音乐爱好者。三环的能量直接决定了现场的氛围层次。
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div style="background: var(--warm-white); padding: 20px; border-radius: 2px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--earth); letter-spacing: 2px; margin-bottom: 8px;">招募方式</div>
+            <div style="font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300;">
+              线上报名表单<br>
+              小红书/抖音评论区引导<br>
+              Ye 粉丝社群定向邀请
+            </div>
+          </div>
+          <div style="background: var(--warm-white); padding: 20px; border-radius: 2px;">
+            <div style="font-size: 12px; font-weight: 600; color: var(--earth); letter-spacing: 2px; margin-bottom: 8px;">要求</div>
+            <div style="font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300;">
+              熟悉当天曲目<br>
+              能跟唱副歌部分<br>
+              遵守现场着装要求
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Funnel visualization -->
+  <div style="margin-top: 60px; text-align: center;">
+    <p style="font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--earth); margin-bottom: 24px; font-weight: 500;">Recruitment Funnel</p>
+    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" style="max-width: 600px; width: 100%;">
+      <!-- Funnel layers -->
+      <!-- P1: Core -->
+      <polygon points="260,10 340,10 350,50 250,50" fill="rgba(196,169,125,0.5)" stroke="rgba(196,169,125,0.7)" stroke-width="1"/>
+      <text x="300" y="36" fill="var(--dark)" font-size="10" text-anchor="middle" font-family="Inter" font-weight="600">P1 Core ~30</text>
+
+      <!-- P2: Content -->
+      <polygon points="250,54 350,54 380,94 220,94" fill="rgba(196,169,125,0.25)" stroke="rgba(196,169,125,0.4)" stroke-width="1"/>
+      <text x="300" y="78" fill="var(--charcoal)" font-size="10" text-anchor="middle" font-family="Inter" font-weight="500">P2 Content Production</text>
+
+      <!-- Arrow -->
+      <text x="300" y="108" fill="var(--earth)" font-size="11" text-anchor="middle" font-family="Inter">Small Red Book + Douyin + WeChat</text>
+
+      <!-- P3: Community -->
+      <polygon points="200,118 400,118 430,158 170,158" fill="rgba(168,146,121,0.2)" stroke="rgba(168,146,121,0.35)" stroke-width="1"/>
+      <text x="300" y="143" fill="var(--charcoal)" font-size="10" text-anchor="middle" font-family="Inter" font-weight="500">P3 Community Choir 60-70</text>
+
+      <!-- P4: Fans -->
+      <polygon points="150,162 450,162 490,202 110,202" fill="rgba(168,146,121,0.1)" stroke="rgba(168,146,121,0.2)" stroke-width="1"/>
+      <text x="300" y="187" fill="var(--charcoal)" font-size="10" text-anchor="middle" font-family="Inter" font-weight="500">P4 Fan Zone ~200</text>
+    </svg>
+    <p style="font-size: 12px; color: var(--muted); margin-top: 12px; font-weight: 300;">核心团队产出内容 → 内容驱动招募 → 招募扩大声量 → 声量吸引粉丝</p>
+  </div>
+</section>
+
+<!-- 07 活动流程 -->
+<section class="section-sand">
+  <div class="section-inner">
+    <div class="section-label">07 / Run of Show</div>
+    <h2 class="section-title">活动当天流程</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">T - 3h</div>
+        <div class="timeline-content">
+          <h4>场地搭建</h4>
+          <p>音响设备调试、乐器摆位、合唱团站位标记、现场动线确认</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">T - 1.5h</div>
+        <div class="timeline-content">
+          <h4>合唱团到场</h4>
+          <p>换装、声乐热身、走台排练、确认曲目顺序和段落衔接</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">T - 30min</div>
+        <div class="timeline-content">
+          <h4>观众入场</h4>
+          <p>现场播放环境音乐,引导观众自由落座和站位</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">T + 0</div>
+        <div class="timeline-content">
+          <h4>演出开始</h4>
+          <p>无主持人介绍,乐队直接起奏 Ultralight Beam 前奏,合唱团渐入</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">T + 60min</div>
+        <div class="timeline-content">
+          <h4>演出结束</h4>
+          <p>Runaway 哼鸣段落自然消退,不做结束致辞,合唱团缓缓散开</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">T + 80min</div>
+        <div class="timeline-content">
+          <h4>撤场</h4>
+          <p>设备拆卸、场地清洁、恢复原状</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 合作框架 -->
+<section class="section">
+  <div class="section-label">08 / Cooperation</div>
+  <h2 class="section-title">合作框架</h2>
+  <p class="section-text">
+    本项目以联合发起的形式推进,双方各自发挥优势,共同打造这场演出。这是一次真正意义上的合作共创——我们提供创意愿景和社会动员能力,乐团提供专业音乐能力和执行经验,双方优势互补,共同完成这个在深圳前所未有的音乐项目。
+  </p>
+
+  <table class="coop-table">
+    <thead>
+      <tr>
+        <th style="width: 140px;">事项</th>
+        <th>发起方 Connie</th>
+        <th>乐团方</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>创意方向</td>
+        <td>活动整体创意、视觉风格、曲目方向</td>
+        <td>音乐改编、和声设计、演出编排建议</td>
+      </tr>
+      <tr>
+        <td>人员</td>
+        <td>合唱团成员招募(部分)</td>
+        <td>核心乐手、合唱团成员、声乐指导</td>
+      </tr>
+      <tr>
+        <td>音乐制作</td>
+        <td>曲目选择、风格方向</td>
+        <td>编曲、排练、多声部编排、现场指挥</td>
+      </tr>
+      <tr>
+        <td>场地与执行</td>
+        <td>场地申请与备案、活动报备</td>
+        <td>设备支持、技术执行</td>
+      </tr>
+      <tr>
+        <td>宣传</td>
+        <td>社交媒体推广、内容制作</td>
+        <td>乐团渠道推广</td>
+      </tr>
+      <tr>
+        <td>署名</td>
+        <td colspan="2" style="text-align: center;">联合发起 / 双方共同署名</td>
+      </tr>
+      <tr>
+        <td>费用</td>
+        <td colspan="2" style="text-align: center;">共同分担 / 具体比例另行协商</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 09 推进计划 -->
+<section class="section-dark">
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--accent);">09 / Roadmap</div>
+    <h2 class="section-title">推进计划</h2>
+
+    <div class="grid-2">
+      <div class="card-dark">
+        <div class="card-number">01</div>
+        <div class="card-title">确认合作</div>
+        <div class="card-text">双方确认合作意向,明确分工和费用分担方式,签订合作备忘录</div>
+      </div>
+      <div class="card-dark">
+        <div class="card-number">02</div>
+        <div class="card-title">音乐制作</div>
+        <div class="card-text">完成 7 首曲目的合唱改编,确定声部分配,开始分声部排练</div>
+      </div>
+      <div class="card-dark">
+        <div class="card-number">03</div>
+        <div class="card-title">合唱团组建</div>
+        <div class="card-text">完成招募,达到百人规模,开始全员合排</div>
+      </div>
+      <div class="card-dark">
+        <div class="card-number">04</div>
+        <div class="card-title">场地与备案</div>
+        <div class="card-text">确定演出场地,完成活动备案和相关申请</div>
+      </div>
+      <div class="card-dark">
+        <div class="card-number">05</div>
+        <div class="card-title">联排与彩排</div>
+        <div class="card-text">全员带设备联排,确认站位、音响、流程</div>
+      </div>
+      <div class="card-dark">
+        <div class="card-number">06</div>
+        <div class="card-title">正式演出</div>
+        <div class="card-text">在深圳地标完成首场演出</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 场地建议 -->
+<section class="section">
+  <div class="section-label">10 / Venue</div>
+  <h2 class="section-title">场地方向</h2>
+  <p class="section-text">
+    以下为初步考虑的深圳场地方向,具体场地将根据合作方资源和实际条件确定。
+  </p>
+
+  <div class="grid-2" style="margin-top: 40px;">
+    <div class="card">
+      <div class="card-title">海上世界广场</div>
+      <div class="card-text">有户外演出传统,商业空间对公益文化活动态度开放,周边配套成熟,视觉效果好。需与招商蛇口商业运营团队协商。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">深圳湾公园 / 人才公园</div>
+      <div class="card-text">户外开阔空间,最接近 Sunday Service 原版的户外感受。需向公园管理处提交活动申请。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">OCT-LOFT 华侨城创意园</div>
+      <div class="card-text">文艺氛围好,受众匹配度高。有成熟的活动举办流程,审批相对容易。</div>
+    </div>
+    <div class="card">
+      <div class="card-title">深圳音乐厅(户外广场)</div>
+      <div class="card-text">专业音乐场地,有成熟的申请流程和设备支持。适合正式演出。</div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact / End -->
+<section class="contact-section">
+  <div class="contact-label">Let's Make It Happen</div>
+  <p class="contact-text">
+    <span class="zh-line">深圳需要这样一场演出</span>
+    <span class="zh-line">一百个人,一个圆,一种声音</span>
+    <span class="en-line">One Hundred Voices. One Circle. One Sound.</span>
+  </p>
+  <div class="contact-info">
+    Tel: 166 0885 0521<br>
+    WeChat: ConnieGOUP
+  </div>
+</section>
+
+<div class="page-marker">
+  Sunday Service Shenzhen — Project Proposal — Confidential
+</div>
+
+</body>
+</html>
