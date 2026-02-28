@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunday Service Shenzhen — Core Team</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+  :root {
+    --sand: #E8DFD0;
+    --warm-white: #F5F0E8;
+    --earth: #A89279;
+    --dark: #1A1714;
+    --charcoal: #2C2822;
+    --muted: #8A8072;
+    --cream: #FAF7F2;
+    --accent: #C4A97D;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  .header {
+    background: var(--dark);
+    padding: 60px 40px 50px;
+    text-align: center;
+  }
+
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 24px;
+  }
+
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 900;
+    color: var(--warm-white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Team Cards */
+  .team-section {
+    padding: 56px 0 40px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .member-card {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 40px 36px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  .member-number {
+    font-size: 64px;
+    font-weight: 900;
+    color: rgba(196,169,125,0.08);
+    position: absolute;
+    top: 16px;
+    right: 28px;
+    line-height: 1;
+  }
+
+  .member-role {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .member-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--warm-white);
+    margin-bottom: 4px;
+  }
+
+  .member-name-en {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+
+  .member-duties {
+    list-style: none;
+    padding: 0;
+  }
+
+  .member-duties li {
+    font-size: 14px;
+    color: var(--sand);
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(196,169,125,0.08);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-weight: 300;
+  }
+
+  .member-duties li:last-child {
+    border-bottom: none;
+  }
+
+  .duty-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* Structure */
+  .structure-section {
+    padding: 20px 0 56px;
+  }
+
+  .structure-box {
+    background: var(--warm-white);
+    border-radius: 16px;
+    padding: 36px;
+    border: 1px solid var(--sand);
+  }
+
+  .structure-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .org-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .org-node {
+    text-align: center;
+    padding: 14px 28px;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .org-node.primary {
+    background: var(--dark);
+    min-width: 200px;
+  }
+
+  .org-node.primary .org-name {
+    color: var(--warm-white);
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .org-node.primary .org-role {
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .org-connector {
+    width: 1px;
+    height: 24px;
+    background: var(--earth);
+    margin: 0 auto;
+  }
+
+  .org-branch {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+  }
+
+  .org-branch::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: var(--earth);
+  }
+
+  .org-branch .org-node {
+    background: var(--sand);
+    min-width: 140px;
+  }
+
+  .org-branch .org-connector {
+    position: absolute;
+    top: -24px;
+  }
+
+  .org-branch .org-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--charcoal);
+  }
+
+  .org-branch .org-role {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .branch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--dark);
+    padding: 40px;
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 2px;
+  }
+
+  .footer-project {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 480px) {
+    .header { padding: 48px 24px 40px; }
+    .member-card { padding: 32px 24px; }
+    .member-number { font-size: 48px; right: 16px; }
+    .structure-box { padding: 28px 20px; }
+    .org-branch { flex-direction: column; align-items: center; gap: 12px; }
+    .org-branch::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">Core Team</div>
+  <div class="header-title">Sunday Service<br>Shenzhen</div>
+  <div class="header-sub">核心团队介绍</div>
+</div>
+
+<div class="container">
+  <div class="team-section">
+    <div class="section-label">Team Members</div>
+
+    <div class="member-card">
+      <div class="member-number">01</div>
+      <div class="member-role">发起人 / 总策划</div>
+      <div class="member-name">Connie</div>
+      <div class="member-name-en">策划 &middot; 统筹 &middot; 创意</div>
+      <ul class="member-duties">
+        <li><span class="duty-dot"></span>项目发起人，负责整体创意方向与视觉定义</li>
+        <li><span class="duty-dot"></span>演出策划与流程设计</li>
+        <li><span class="duty-dot"></span>合唱团组建与排练统筹</li>
+        <li><span class="duty-dot"></span>乐团及各方资源对接</li>
+        <li><span class="duty-dot"></span>现场执行总控</li>
+      </ul>
+    </div>
+
+    <div class="member-card">
+      <div class="member-number">02</div>
+      <div class="member-role">宣发 / 推广</div>
+      <div class="member-name">欧阳礼皓</div>
+      <div class="member-name-en">宣传 &middot; 推广 &middot; 传播</div>
+      <ul class="member-duties">
+        <li><span class="duty-dot"></span>项目宣传策略制定与执行</li>
+        <li><span class="duty-dot"></span>社交媒体运营与内容输出</li>
+        <li><span class="duty-dot"></span>招募信息发布与渠道拓展</li>
+        <li><span class="duty-dot"></span>演出前期预热与话题传播</li>
+        <li><span class="duty-dot"></span>媒体关系与对外合作</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="structure-section">
+    <div class="structure-box">
+      <div class="structure-title">团队架构</div>
+      <div class="org-chart">
+        <div class="org-node primary">
+          <div class="org-role">发起人</div>
+          <div class="org-name">Connie</div>
+        </div>
+        <div class="org-connector"></div>
+        <div class="org-branch">
+          <div class="branch-item">
+            <div class="org-connector"></div>
+            <div class="org-node">
+              <div class="org-role">宣发推广</div>
+              <div class="org-name">欧阳礼皓</div>
+            </div>
+          </div>
+          <div class="branch-item">
+            <div class="org-connector"></div>
+            <div class="org-node">
+              <div class="org-role">乐团</div>
+              <div class="org-name">合作方</div>
+            </div>
+          </div>
+          <div class="branch-item">
+            <div class="org-connector"></div>
+            <div class="org-node">
+              <div class="org-role">合唱团</div>
+              <div class="org-name">招募中</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-project">Sunday Service Shenzhen</div>
+  <div class="footer-text">2025 &middot; CORE TEAM</div>
+</div>
+
+</body>
+</html>
