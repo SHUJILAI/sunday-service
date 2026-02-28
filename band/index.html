@@ -566,11 +566,134 @@
     padding: 20px;
   }
 
+  /* Origin Story Collapsible */
+  .origin-section {
+    background: var(--dark);
+    color: var(--warm-white);
+    padding: 80px 40px 60px;
+    position: relative;
+  }
+
+  .origin-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .origin-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .origin-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--warm-white);
+    letter-spacing: -0.5px;
+  }
+
+  .origin-summary {
+    font-size: 16px;
+    line-height: 2;
+    color: rgba(245,240,232,0.75);
+    font-weight: 300;
+    max-width: 700px;
+    margin-bottom: 32px;
+  }
+
+  .origin-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 1px solid var(--earth);
+    color: var(--earth);
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .origin-toggle:hover {
+    background: var(--earth);
+    color: var(--dark);
+  }
+
+  .origin-toggle .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 11px;
+  }
+
+  .origin-toggle.active .arrow {
+    transform: rotate(180deg);
+  }
+
+  .origin-full {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .origin-full.open {
+    max-height: 5000px;
+    opacity: 1;
+  }
+
+  .origin-story {
+    padding-top: 50px;
+    border-top: 1px solid rgba(168,146,121,0.2);
+    margin-top: 40px;
+  }
+
+  .origin-story p {
+    font-size: 15px;
+    line-height: 2.2;
+    color: rgba(245,240,232,0.65);
+    font-weight: 300;
+    margin-bottom: 28px;
+    max-width: 700px;
+    text-indent: 2em;
+  }
+
+  .origin-story p:last-child {
+    margin-bottom: 0;
+  }
+
+  .origin-story .highlight {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .origin-ending {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(168,146,121,0.2);
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+
   /* Print styles */
   @media print {
     .hero { min-height: auto; padding: 60px 40px; }
     .section, .section-dark, .section-sand { padding: 40px; }
     body { font-size: 12px; }
+    .origin-full { max-height: none; opacity: 1; }
+    .origin-toggle { display: none; }
   }
 </style>
 </head>
@@ -586,6 +709,69 @@
     纯公益 / 纯音乐 / Kanye 经典曲目合唱改编
   </p>
   <div class="hero-badge">Confidential — For Partnership Discussion Only</div>
+</section>
+
+<!-- 项目起因 -->
+<section class="origin-section">
+  <div class="origin-inner">
+    <div class="origin-label">Origin Story</div>
+    <h2 class="origin-title">项目起因</h2>
+    <p class="origin-summary">
+      这个项目源于发起人 Connie 的真实经历——在经历多次创业失败、抑郁症躯体化和人生至暗时刻后，是每晚反复聆听 Sunday Service 现场录像给了他重新站起来的力量。他想把这股力量传递给更多人，于是深圳 Sunday Service 诞生了。
+    </p>
+    <button class="origin-toggle" onclick="const f=document.getElementById('originFull');f.classList.toggle('open');this.classList.toggle('active');this.querySelector('.txt').textContent=f.classList.contains('open')?'收起故事':'阅读完整故事'">
+      <span class="txt">阅读完整故事</span>
+      <span class="arrow">▼</span>
+    </button>
+
+    <div id="originFull" class="origin-full">
+      <div class="origin-story">
+
+        <p>2024年9月，我在刚出社会还没有稳定的情况下裸辞掉了高薪的工作，因为我飘了，我在大三的时候就自学AI创业，获得过第一桶金，接着是启动各种项目，玩的不亦乐乎，凭借着点小聪明，赚过了一点快钱就为之着迷，一出来就拿高薪，我在想，我好吊啊。</p>
+
+        <p>于是我在 Kanye 海口9.15演出前裸辞了，因为我要办派对，我要赚钱，我要发大财，我要把这套模式复制到全国。</p>
+
+        <p>于是我成功得从非常有限的时间里完成了这一次策划执行落地，那是我第二次来钱那么快，几天就好几万，我已经彻底不懂为什么别人愿意干几千块钱的工作，拿着那看起来少得可怜的薪资。</p>
+
+        <p>同时在这个过程中我结识了几位人很好的老板，愿意给我橄榄枝，主动邀请我合作，我更飘了，我已经目中无人了。于是我开始尝试把这一套偶然成功的模式搭建成一套平台，这需要钱，需要现金流，我没办法，只能寻找天使投资人，最终以惨败告终。</p>
+
+        <p>在海南待了一个月，耗尽了存款后还是灰溜溜的回到了广州租的房子，打起了日结零工，正经工作岗位已经没有了，没有企业招人了，我为了交房租吃饭，只能每日奔波在一百六，两百块钱的劳动中。</p>
+
+        <p>于是我回到了老家，躺了一个星期，准备备考教资，再出去当个老师算了。</p>
+
+        <p>可人总是贪婪的，一次的失败并不能磨灭我的急躁。此时2025年2月，Travis Scott 在韩国的演出开票了，于是我在闲鱼找了个代付，帮我购买了四张票，到小红书上转手一卖，总共净赚了1300。在老家，这钱能让我随便吃喝一个月。于是我又在网上琢磨起了赚钱的法子。</p>
+
+        <p>我这次选择的是 web3，同时运营个人加密IP，期间小有收获，而且在行情最好，最疯狂的时候，一个月净利润高达一万多（全职撸空投），有时候还碰上极端情况，看着别人一波就A7A8，我贪婪极了，我又着急了，又打乱了自己的节奏，不按计划去走，期间还被盗取大几千，结果就是再次的挫败（没有赌博合约），你想撸别人，别人想撸你。</p>
+
+        <p>这一切都没有把我打倒，但是这一年，我多次创业，长期处在高度的精神压力和久坐，死宅，我像在破裂的冰面上向着金山蠕动，我已经濒临崩溃了。</p>
+
+        <p>看似我很聪明，很有商业头脑，很能钻空子，很能空手套白狼，看似别人都没有我聪明。但其实我这点经历和小伎俩，在大多数的人眼里都不值一提。既不够惨，也不够屌，我就是个普普通通的普通人。</p>
+
+        <p>我和异地多年的女友也出现了感情危机，因为我这样的状态持续了太久，而且她的工作压力也很大，在某一天，借着冷静脱离了消耗。</p>
+
+        <p>多重的压力和打击终于让我倒下了，一开始我还在假装自己没什么，但其实我每天没有胃口，只吃一顿饭，不出门，除了寄托于最后一个大的投入的项目有多倍的回报，让我有一笔钱可以去找工作，去做事业，开工作室，生活还能走回正轨，但现实不跟你玩这些，我还是败了。随着市场环境的变差，撸空投也做不下去了，最后那个项目的回报也远不及当初的预期。<span class="highlight">我彻底绝望了，我失去了一切，在我的本命年。</span></p>
+
+        <p>长达多年的抑郁症，也在此刻彻底爆发出来了。在2025年11月开始，我开始了我的躯体化，我两天吃一顿饭，我把自己关在房间里，全黑的环境，我每天都在睡，我手机也不玩，电脑也不开，我只是在放空，我只是在睡觉。。。我不想做任何事情了，包括进食，甚至包括翻身。</p>
+
+        <p>最终在我的一次次纠缠下，我终于得到了那个答案。即使在那之前我就哭过很多次，但那天晚上，我哭的最惨，我哭到呼吸困难，四肢麻痹，胸口疼痛，哭到第一次打电话寻求家人的帮助，哭到我爸妈抱着我哭。除了经常约发小出去喝酒，买醉，我也不知道那段时间我怎么过来的。有一次喝酒途中，我看着六七层高的楼问他，你觉得我在想什么？</p>
+
+        <p>在严重的躯体化两个半月后，我的求生本能让我做出了改变，我买了一张火车票，来到了深圳打工，找兼职。快过年了，只能先打着兼职，一边找正式的工作。我找了半个月，一无所获，最终去了宝安机场搬运行李，每天十个钟，一天三百块钱，不过我做的是晚班，要到凌晨两点才能回去，所以我只能在机场休息三个小时，五点多地铁开了，再坐地铁回到舅舅家，洗澡睡觉，到下午又继续出发，这期间我一直没有放弃找工作。</p>
+
+        <p><span class="highlight">这一个月，每晚我都在舅舅家的床上，反复听着 Sunday Service 的现场视频获取前进的力量，</span>我已经不知道经历过多少次的情绪反扑和内耗了，如果我在现场感受这种力量，该有多好啊！</p>
+
+        <p><span class="highlight">于是我决定做一件大事，那就是复刻 Sunday Service！</span></p>
+
+        <p>但是我没有钱，那怎么办呢？幸运的是蛇年快过完了，开始转运了，也有可能是我完成了内心的重建，能量回来了，这一次的我，更坚强，浮躁的性子已被抹去了大半，也许这一切都只是老天想告诉我怎么守住自己的钱财和幸福，提前让我得到了这些认知。在机场上班的第二天，我就接到了AI公司的邀约，让我第二天直接过去上班，我终于又有正经工作了。我开始联系扒谱师，给我准备谱子，我有了谱子才能招人，招够人了才能复刻这一切，一步一步，变得越来越好，就是你们现在看到的这个样子了。</p>
+
+        <p>现在是2026年3月1日，刚刚下班的我回到了家，写下了这些。现在的我，有工作，有副业，还有热爱的东西，还能自己策划一次这种程度的，这种形式的活动，我觉得人生最幸福的时刻，莫过于此了，只要还能继续做你想做的事情，那你就该感恩这种生活，之前的教训让我更珍惜现在所拥有的一切。</p>
+
+        <div class="origin-ending">
+          我想把这股力量传递出去，所以，深圳 Sunday Service 成立了。
+        </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- 01 项目概述 -->
