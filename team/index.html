@@ -448,11 +448,53 @@
   }
 
   /* ===== MEMBER PHOTO ===== */
+  .member-header-with-photo {
+    padding: 36px 36px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
   .member-photo {
-    width: 100%;
-    display: block;
-    object-fit: contain;
-    background: #111;
+    width: 110px;
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+  }
+  .member-header-with-photo .member-identity {
+    flex: 1;
+  }
+  .member-header-with-photo .member-role {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .member-header-with-photo .member-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--warm-white);
+    margin-bottom: 2px;
+  }
+  .member-header-with-photo .member-realname {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .member-header-with-photo .member-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 10px;
+  }
+  @media (max-width: 520px) {
+    .member-header-with-photo { padding: 28px 24px 0; gap: 16px; }
+    .member-photo { width: 90px; height: 115px; }
+    .member-header-with-photo .member-name { font-size: 26px; }
   }
 </style>
 </head>
@@ -473,16 +515,16 @@
   </div>
 
   <div class="member">
-    <img class="member-photo" src="connie.jpg" alt="Connie 赖树吉" />
-    <div class="member-header">
+    <div class="member-header-with-photo">
+      <img class="member-photo" src="connie.jpg" alt="Connie 赖树吉" />
       <div class="member-identity">
         <div class="member-role">Founder & Producer</div>
         <div class="member-name">Connie</div>
         <div class="member-realname">赖树吉</div>
-      </div>
-      <div class="member-meta">
-        <span class="meta-tag">男</span>
-        <span class="meta-tag">01年 / 25岁</span>
+        <div class="member-meta">
+          <span class="meta-tag">男</span>
+          <span class="meta-tag">01年 / 25岁</span>
+        </div>
       </div>
     </div>
 
@@ -609,16 +651,16 @@
   </div>
 
   <div class="member">
-    <img class="member-photo" src="mia.jpg" alt="Mia 肖米米" />
-    <div class="member-header">
+    <div class="member-header-with-photo">
+      <img class="member-photo" src="mia.jpg" alt="Mia 肖米米" />
       <div class="member-identity">
         <div class="member-role">Conductor</div>
         <div class="member-name">Mia</div>
         <div class="member-realname">肖米米</div>
-      </div>
-      <div class="member-meta">
-        <span class="meta-tag">女</span>
-        <span class="meta-tag">22岁</span>
+        <div class="member-meta">
+          <span class="meta-tag">女</span>
+          <span class="meta-tag">22岁</span>
+        </div>
       </div>
     </div>
 
