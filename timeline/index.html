@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunday Service Shenzhen — 周计划 Timeline</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+  :root {
+    --sand: #E8DFD0;
+    --warm-white: #F5F0E8;
+    --earth: #A89279;
+    --dark: #1A1714;
+    --charcoal: #2C2822;
+    --muted: #8A8072;
+    --cream: #FAF7F2;
+    --accent: #C4A97D;
+    --green: #4A7A5B;
+    --green-bg: rgba(74,122,91,0.08);
+    --orange: #C48A4D;
+    --orange-bg: rgba(196,138,77,0.08);
+    --red: #B85C5C;
+    --red-bg: rgba(184,92,92,0.08);
+    --blue: #5B7A9E;
+    --blue-bg: rgba(91,122,158,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    background: var(--dark);
+    padding: 60px 40px 48px;
+    text-align: center;
+  }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: 900;
+    color: var(--warm-white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== STATUS BAR ===== */
+  .status-bar {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .status-item {
+    text-align: center;
+  }
+  .status-value {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+  .status-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .status-sub {
+    font-size: 11px;
+    color: var(--earth);
+    margin-top: 2px;
+  }
+
+  /* ===== PHASE ===== */
+  .phase {
+    margin-top: 48px;
+  }
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .phase-badge {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .phase-badge.launch { background: var(--green-bg); color: var(--green); }
+  .phase-badge.grow { background: var(--orange-bg); color: var(--orange); }
+  .phase-badge.heat { background: var(--red-bg); color: var(--red); }
+  .phase-badge.show { background: var(--blue-bg); color: var(--blue); }
+
+  .phase-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  /* ===== WEEK CARD ===== */
+  .week {
+    background: var(--dark);
+    border-radius: 14px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .week-top {
+    padding: 24px 28px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .week-id {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .week-date {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+  .week-focus {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--warm-white);
+    padding: 8px 28px 0;
+  }
+
+  .week-tasks {
+    padding: 16px 28px 24px;
+  }
+  .task-row {
+    display: flex;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(196,169,125,0.06);
+    align-items: flex-start;
+  }
+  .task-row:last-child { border-bottom: none; }
+
+  .task-tag {
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .task-tag.music { background: rgba(196,169,125,0.12); color: var(--accent); }
+  .task-tag.growth { background: rgba(74,122,91,0.12); color: #6BAF7E; }
+  .task-tag.ops { background: rgba(91,122,158,0.12); color: #7BA3C4; }
+  .task-tag.content { background: rgba(184,92,92,0.12); color: #D48A8A; }
+  .task-tag.flash { background: rgba(196,138,77,0.15); color: var(--orange); }
+
+  .task-text {
+    font-size: 14px;
+    color: var(--sand);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .task-text strong {
+    color: var(--warm-white);
+    font-weight: 600;
+  }
+
+  /* Milestone */
+  .week-milestone {
+    background: rgba(196,169,125,0.06);
+    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .milestone-icon {
+    font-size: 14px;
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    color: var(--dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+  .milestone-text {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ===== TIER SYSTEM ===== */
+  .tier-section {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+  .tier-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+  .tier-card {
+    background: var(--dark);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .tier-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .tier-ring.t1 { background: var(--accent); color: var(--dark); }
+  .tier-ring.t2 { background: rgba(196,169,125,0.2); color: var(--accent); }
+  .tier-ring.t3 { background: rgba(196,169,125,0.08); color: var(--muted); }
+
+  .tier-info { flex: 1; }
+  .tier-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--warm-white);
+    margin-bottom: 4px;
+  }
+  .tier-desc {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .tier-criteria {
+    font-size: 12px;
+    color: var(--earth);
+    margin-top: 6px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--dark);
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(196,169,125,0.08);
+    margin-top: 20px;
+  }
+  .footer-project {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--warm-white);
+    margin-bottom: 6px;
+  }
+  .footer-text {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 520px) {
+    .hero { padding: 48px 20px 36px; }
+    .status-bar { grid-template-columns: 1fr; gap: 16px; padding: 24px 20px; }
+    .week-top { padding: 20px 20px 0; flex-direction: column; gap: 4px; }
+    .week-focus { padding: 8px 20px 0; }
+    .week-tasks { padding: 12px 20px 20px; }
+    .week-milestone { padding: 10px 20px; }
+    .task-row { flex-direction: column; gap: 4px; }
+    .task-tag { align-self: flex-start; }
+    .tier-card { flex-direction: column; align-items: center; text-align: center; }
+    .phase-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Project Timeline</div>
+  <div class="hero-title">14-Week Plan</div>
+  <div class="hero-sub">2026.03.16 — 2026.06.21</div>
+</div>
+
+<div class="container">
+
+  <!-- STATUS -->
+  <div class="status-bar">
+    <div class="status-item">
+      <div class="status-value">~60</div>
+      <div class="status-label">Current Pool</div>
+      <div class="status-sub">Target: 150</div>
+    </div>
+    <div class="status-item">
+      <div class="status-value">3</div>
+      <div class="status-label">Songs Ready</div>
+      <div class="status-sub">Ghost Town completing</div>
+    </div>
+    <div class="status-item">
+      <div class="status-value">7</div>
+      <div class="status-label">Rehearsals Left</div>
+      <div class="status-sub">Before Flash Mob</div>
+    </div>
+  </div>
+
+  <!-- ===== PHASE 1: MARCH ===== -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-badge launch">3 Month</span>
+      <span class="phase-title">Launch & Build</span>
+    </div>
+
+    <!-- W1 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 01</div>
+        <div class="week-date">3.16 — 3.22</div>
+      </div>
+      <div class="week-focus">Ghost Town编曲收尾 / 三首曲目全部到位</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>Ghost Town编曲定稿</strong>，三首曲目编曲全部完成</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>3.21（六）</strong>排练：脱谱钢伴合练</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text">排练花絮持续发小红书/抖音</span>
+        </div>
+      </div>
+      <div class="week-milestone">
+        <div class="milestone-icon">!</div>
+        <div class="milestone-text">三首编曲全部完成</div>
+      </div>
+    </div>
+
+    <!-- W2 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 02</div>
+        <div class="week-date">3.23 — 3.29</div>
+      </div>
+      <div class="week-focus">三曲全声部合练 / 3.28定声部长+一环</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>3.28（六）</strong>排练：三首曲目全声部合练</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text"><strong>3.28（六）确定声部长 + 一环核心人员</strong>；未入选一环者：前4次有1次到场→直接入二环；无排练记录→淘汰，可报名申请进入二环/三环</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text"><strong>3.28（六）确定核心乐手及乐器配置</strong>，持续补充乐手</span>
+        </div>
+      </div>
+      <div class="week-milestone">
+        <div class="milestone-icon">!</div>
+        <div class="milestone-text">3.28声部长 + 一环确认 / 群人数目标：80人</div>
+      </div>
+    </div>
+
+    <!-- W3 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 03</div>
+        <div class="week-date">3.30 — 4.5</div>
+      </div>
+      <div class="week-focus">4.4-4.5 清明停排 / 锁定排练场地</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text"><strong>4.4（六）-4.5（日）</strong>清明假期不排练，推进场地和行政工作</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text"><strong>锁定固定排练场地</strong>（100人以上空间）</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">声部长到位，一环/二环名单落实，通知一环成员4月起双练安排</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag growth">Growth</span>
+          <span class="task-text">持续招募，目标破100人</span>
+        </div>
+      </div>
+      <div class="week-milestone">
+        <div class="milestone-icon">#</div>
+        <div class="milestone-text">场地锁定 / 群人数目标：100人</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PHASE 2: APRIL ===== -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-badge grow">4 Month</span>
+      <span class="phase-title">Scale & Shape</span>
+    </div>
+
+    <!-- W4 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 04</div>
+        <div class="week-date">4.6 — 4.12</div>
+      </div>
+      <div class="week-focus">一环双练启动 / 拍摄团队物色</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>4.11（六）-4.12（日）</strong>一环启动一周双练，5-6首曲目轮排</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">物色<strong>摄影/摄像团队</strong>（快闪拍摄用）</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text">持续发布排练内容，带动自然增长</span>
+        </div>
+      </div>
+      <div class="week-milestone">
+        <div class="milestone-icon">#</div>
+        <div class="milestone-text">一环双练开始 / 群人数目标：120人</div>
+      </div>
+    </div>
+
+    <!-- W5 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 05</div>
+        <div class="week-date">4.13 — 4.19</div>
+      </div>
+      <div class="week-focus">一环双练持续 / 新人持续分层</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>4.18（六）-4.19（日）</strong>一环双练，推进新曲目</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">新人按标准<strong>持续分入一环/二环</strong>，表现突出者晋升一环</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text"><strong>联系本地博主/媒体</strong>，发排练花絮做预热</span>
+        </div>
+      </div>
+      <div class="week-milestone">
+        <div class="milestone-icon">!</div>
+        <div class="milestone-text">新人持续分层</div>
+      </div>
+    </div>
+
+    <!-- W6 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 06</div>
+        <div class="week-date">4.20 — 4.26</div>
+      </div>
+      <div class="week-focus">全部曲目完整拿下 / 快闪场地踩点</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>4.25（六）-4.26（日）</strong>一环双练：所有曲目全部完整拿下</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag flash">Flash</span>
+          <span class="task-text"><strong>踩点快闪场地</strong>，确定地点和时段</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag flash">Flash</span>
+          <span class="task-text">拍摄团队确认、<strong>拍摄方案定稿</strong></span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">一环确定快闪演出阵容</span>
+        </div>
+      </div>
+      <div class="week-milestone">
+        <div class="milestone-icon">!</div>
+        <div class="milestone-text">全部曲目完成 / 快闪阵容锁定</div>
+      </div>
+    </div>
+
+    <!-- W7 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 07</div>
+        <div class="week-date">4.27 — 5.3</div>
+      </div>
+      <div class="week-focus">快闪前冲刺 / 全曲连排</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>5.2（六）-5.3（日）</strong>一环双练：快闪曲目全曲连排，模拟演出状态</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag flash">Flash</span>
+          <span class="task-text">确认快闪<strong>全部执行细节</strong>：设备/交通/集合/流程</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text">预告内容发布，制造期待</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PHASE 3: MAY ===== -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-badge heat">5 Month</span>
+      <span class="phase-title">Flash Mob</span>
+    </div>
+
+    <!-- W8 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 08</div>
+        <div class="week-date">5.4 — 5.10</div>
+      </div>
+      <div class="week-focus">第一场快闪</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag flash">Flash</span>
+          <span class="task-text"><strong>5.9（六）Flash Mob #1</strong> 执行</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text">当天素材<strong>立即进后期</strong></span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">复盘第一场，记录问题和改进点</span>
+        </div>
+      </div>
+      <div class="week-milestone">
+        <div class="milestone-icon">1</div>
+        <div class="milestone-text">Flash Mob #1</div>
+      </div>
+    </div>
+
+    <!-- W9 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 09</div>
+        <div class="week-date">5.11 — 5.17</div>
+      </div>
+      <div class="week-focus">素材投放 + 5.16第二场快闪</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text">第一场素材<strong>全平台发布 + 投推广</strong></span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag flash">Flash</span>
+          <span class="task-text"><strong>5.16（六）Flash Mob #2</strong>（根据#1反馈调整）</span>
+        </div>
+      </div>
+      <div class="week-milestone">
+        <div class="milestone-icon">2</div>
+        <div class="milestone-text">Flash Mob #2 / 素材大规模曝光</div>
+      </div>
+    </div>
+
+    <!-- W10 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 10</div>
+        <div class="week-date">5.18 — 5.24</div>
+      </div>
+      <div class="week-focus">声势扩大 / 演出筹备启动</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text">第二场素材发布，<strong>持续推广</strong></span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">确定6月演出场地（户外/傍晚）</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>5.23（六）-5.24（日）</strong>排练：演出完整曲目单定稿</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- W11 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 11</div>
+        <div class="week-date">5.25 — 5.31</div>
+      </div>
+      <div class="week-focus">演出曲目全面打磨</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>5.30（六）-5.31（日）</strong>演出曲目全套连排</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">演出设备清单确认：供电/扩声/灯光</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag growth">Growth</span>
+          <span class="task-text">快闪带来的新人融入排练</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PHASE 4: JUNE ===== -->
+  <div class="phase">
+    <div class="phase-header">
+      <span class="phase-badge show">6 Month</span>
+      <span class="phase-title">The Show</span>
+    </div>
+
+    <!-- W12 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 12</div>
+        <div class="week-date">6.1 — 6.7</div>
+      </div>
+      <div class="week-focus">演出倒计时 / 全套连排</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>6.6（六）-6.7（日）</strong>100人全员连排，模拟演出完整流程</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">演出执行方案定稿（流程/动线/应急）</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text">演出预告发布</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- W13 -->
+    <div class="week">
+      <div class="week-top">
+        <div class="week-id">Week 13</div>
+        <div class="week-date">6.8 — 6.14</div>
+      </div>
+      <div class="week-focus">最后全员连排 / 设备+天气确认</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag music">Music</span>
+          <span class="task-text"><strong>6.13（六）-6.14（日）</strong>最后一次全员连排，查漏补缺</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">设备清单最终确认：供电/扩声/灯光/拍摄位</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text">天气预案确认（雨备方案）</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- W14 -->
+    <div class="week" style="border: 1px solid var(--accent);">
+      <div class="week-top">
+        <div class="week-id" style="font-size: 12px;">Week 14</div>
+        <div class="week-date">6.15 — 6.21</div>
+      </div>
+      <div class="week-focus" style="font-size: 20px;">Sunday Service Shenzhen</div>
+      <div class="week-tasks">
+        <div class="task-row">
+          <span class="task-tag ops">Ops</span>
+          <span class="task-text"><strong>演出前一天</strong>场地彩排 + 设备实测（6.19五 或 6.20六）</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag flash">Show</span>
+          <span class="task-text"><strong>6.20（六）或 6.21（日）</strong>正式演出 — 户外 / 傍晚 / 公益</span>
+        </div>
+        <div class="task-row">
+          <span class="task-tag content">Content</span>
+          <span class="task-text">全程拍摄记录</span>
+        </div>
+      </div>
+      <div class="week-milestone" style="background: rgba(196,169,125,0.12);">
+        <div class="milestone-icon">GO</div>
+        <div class="milestone-text">100人户外傍晚演出</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TIER SYSTEM ===== -->
+  <div class="tier-section">
+    <div class="tier-title">Tier System</div>
+    <div style="font-size: 13px; color: var(--muted); margin-bottom: 20px;">3.28（六）声部长 + 一环核心确认，按出勤记录分入二环/淘汰，后续新人持续分层</div>
+
+    <div class="tier-card">
+      <div class="tier-ring t1">1</div>
+      <div class="tier-info">
+        <div class="tier-name">一环 Core</div>
+        <div class="tier-desc">核心演出阵容，参与快闪和正式演出。4月起周末双练（周六+周日）。</div>
+        <div class="tier-criteria">标准：出勤率高 + 声部能力过关 + 团队配合度好（三项全满足）</div>
+      </div>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-ring t2">2</div>
+      <div class="tier-info">
+        <div class="tier-name">二环 Active</div>
+        <div class="tier-desc">未入选一环但前4次有至少1次排练记录者直接入二环，参与周末排练和正式演出</div>
+        <div class="tier-criteria">标准：有出勤记录 + 态度积极，能力提升后可晋升一环</div>
+      </div>
+    </div>
+
+    <div class="tier-card">
+      <div class="tier-ring t3">3</div>
+      <div class="tier-info">
+        <div class="tier-name">三环 Community</div>
+        <div class="tier-desc">无排练记录者淘汰后可报名申请进入二环/三环，作为后备力量</div>
+        <div class="tier-criteria">标准：前4次无出勤记录，需主动报名申请</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-project">Sunday Service Shenzhen</div>
+  <div class="footer-text">14-Week Timeline &middot; March — June 2026</div>
+</div>
+
+</body>
+</html>
