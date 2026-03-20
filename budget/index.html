@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunday Service Shenzhen — Budget Proposal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+  :root {
+    --sand: #E8DFD0;
+    --warm-white: #F5F0E8;
+    --earth: #A89279;
+    --dark: #1A1714;
+    --charcoal: #2C2822;
+    --muted: #8A8072;
+    --cream: #FAF7F2;
+    --accent: #C4A97D;
+    --green: #4A7A5B;
+    --green-bg: rgba(74,122,91,0.08);
+    --orange: #C48A4D;
+    --orange-bg: rgba(196,138,77,0.08);
+    --red: #B85C5C;
+    --blue: #5B7A9E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    background: var(--dark);
+    padding: 60px 40px 48px;
+    text-align: center;
+  }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--earth);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 6vw, 44px);
+    font-weight: 900;
+    color: var(--warm-white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== PROJECT BRIEF ===== */
+  .brief {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-top: 40px;
+  }
+  .brief-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .brief-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .brief-item {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+  .brief-label {
+    font-size: 11px;
+    color: var(--muted);
+    white-space: nowrap;
+    min-width: 60px;
+  }
+  .brief-value {
+    font-size: 13px;
+    color: var(--sand);
+    font-weight: 400;
+  }
+
+  /* ===== VERSION TABS ===== */
+  .version-switch {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+    margin-bottom: 24px;
+  }
+  .version-tab {
+    flex: 1;
+    padding: 20px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 2px solid transparent;
+  }
+  .version-tab.ideal {
+    background: var(--dark);
+    border-color: var(--accent);
+  }
+  .version-tab.basic {
+    background: var(--dark);
+    border-color: var(--green);
+  }
+  .version-tab .tab-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .version-tab.ideal .tab-label { color: var(--accent); }
+  .version-tab.basic .tab-label { color: var(--green); }
+  .version-tab .tab-total {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--warm-white);
+    line-height: 1.2;
+  }
+  .version-tab .tab-desc {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-top: 4px;
+  }
+
+  /* ===== BUDGET SECTION ===== */
+  .budget-section {
+    margin-top: 36px;
+  }
+  .budget-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .budget-badge {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .budget-badge.ideal { background: rgba(196,169,125,0.12); color: var(--accent); }
+  .budget-badge.basic { background: var(--green-bg); color: var(--green); }
+  .budget-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  /* ===== TABLE ===== */
+  .budget-table {
+    background: var(--dark);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .table-header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    padding: 14px 24px;
+    background: rgba(196,169,125,0.06);
+  }
+  .table-header span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .table-header span:nth-child(2),
+  .table-header span:nth-child(3) {
+    text-align: right;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(196,169,125,0.06);
+    align-items: baseline;
+  }
+  .table-row:last-child { border-bottom: none; }
+  .row-name {
+    font-size: 14px;
+    color: var(--warm-white);
+    font-weight: 500;
+  }
+  .row-detail {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 300;
+    margin-top: 2px;
+  }
+  .row-amount {
+    font-size: 14px;
+    color: var(--sand);
+    font-weight: 600;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .row-note {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .table-total {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 18px 24px;
+    background: rgba(196,169,125,0.08);
+  }
+  .total-label {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .total-amount {
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 800;
+    text-align: right;
+  }
+
+  /* ===== PHASE SPEND ===== */
+  .phase-spend {
+    background: var(--dark);
+    border-radius: 14px;
+    padding: 24px;
+    margin-top: 16px;
+  }
+  .phase-spend-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .phase-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .phase-bar-row:last-child { margin-bottom: 0; }
+  .phase-bar-label {
+    font-size: 12px;
+    color: var(--muted);
+    min-width: 90px;
+    font-weight: 400;
+  }
+  .phase-bar-track {
+    flex: 1;
+    height: 24px;
+    background: rgba(196,169,125,0.06);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+  .phase-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+  .phase-bar-fill.p1 { background: rgba(74,122,91,0.3); }
+  .phase-bar-fill.p2 { background: rgba(196,138,77,0.3); }
+  .phase-bar-fill.p3 { background: rgba(184,92,92,0.3); }
+  .phase-bar-fill.p4 { background: rgba(91,122,158,0.3); }
+  .phase-bar-amount {
+    font-size: 11px;
+    color: var(--warm-white);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ===== COMPARISON ===== */
+  .compare-section {
+    margin-top: 48px;
+  }
+  .compare-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+  .compare-table {
+    background: var(--dark);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .compare-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    padding: 14px 24px;
+    background: rgba(196,169,125,0.06);
+  }
+  .compare-header span {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    text-align: center;
+  }
+  .compare-header span:first-child { text-align: left; }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    padding: 12px 24px;
+    border-bottom: 1px solid rgba(196,169,125,0.06);
+    align-items: center;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-item {
+    font-size: 13px;
+    color: var(--sand);
+    text-align: center;
+  }
+  .compare-item:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: var(--warm-white);
+  }
+  .compare-item.yes { color: var(--accent); font-weight: 600; }
+  .compare-item.exchange { color: var(--green); font-weight: 400; font-size: 11px; }
+  .compare-item.no { color: var(--muted); font-weight: 300; }
+
+  /* ===== PRINCIPLES ===== */
+  .principles {
+    background: var(--dark);
+    border-radius: 14px;
+    padding: 28px;
+    margin-top: 36px;
+    margin-bottom: 48px;
+  }
+  .principles-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .principle-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  .principle-item:last-child { margin-bottom: 0; }
+  .principle-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+  .principle-text {
+    font-size: 13px;
+    color: var(--sand);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--dark);
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(196,169,125,0.08);
+    margin-top: 20px;
+  }
+  .footer-project {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--warm-white);
+    margin-bottom: 6px;
+  }
+  .footer-text {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 520px) {
+    .hero { padding: 48px 20px 36px; }
+    .brief { padding: 24px 20px; }
+    .brief-grid { grid-template-columns: 1fr; }
+    .version-switch { flex-direction: column; }
+    .table-header, .table-row { padding: 12px 16px; grid-template-columns: 1fr auto; }
+    .table-header span:nth-child(3), .row-note { display: none; }
+    .compare-header, .compare-row { padding: 10px 16px; }
+    .phase-bar-label { min-width: 70px; font-size: 11px; }
+    .principles { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-label">Budget Proposal</div>
+  <div class="hero-title">Sunday Service Shenzhen</div>
+  <div class="hero-sub">14 Weeks / March - June 2026 / 100-person Gospel Choir</div>
+</div>
+
+<div class="container">
+
+  <!-- PROJECT BRIEF -->
+  <div class="brief">
+    <div class="brief-title">Project Overview</div>
+    <div class="brief-grid">
+      <div class="brief-item">
+        <span class="brief-label">性质</span>
+        <span class="brief-value">全程公益，不向参与者收费</span>
+      </div>
+      <div class="brief-item">
+        <span class="brief-label">规模</span>
+        <span class="brief-value">100人合唱团 + 乐队</span>
+      </div>
+      <div class="brief-item">
+        <span class="brief-label">周期</span>
+        <span class="brief-value">14周（3月-6月）</span>
+      </div>
+      <div class="brief-item">
+        <span class="brief-label">排练</span>
+        <span class="brief-value">~22次（含双练）</span>
+      </div>
+      <div class="brief-item">
+        <span class="brief-label">快闪</span>
+        <span class="brief-value">5月 x 2场</span>
+      </div>
+      <div class="brief-item">
+        <span class="brief-label">演出</span>
+        <span class="brief-value">6月 / 户外 / 傍晚</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO VERSION OVERVIEW -->
+  <div class="version-switch">
+    <div class="version-tab ideal">
+      <div class="tab-label">Version A / Ideal</div>
+      <div class="tab-total">&yen;166,000</div>
+      <div class="tab-desc">全配置 / 专业级呈现</div>
+    </div>
+    <div class="version-tab basic">
+      <div class="tab-label">Version B / Basic</div>
+      <div class="tab-total">&yen;47,000</div>
+      <div class="tab-desc">仅覆盖资源互换不到的硬成本</div>
+    </div>
+  </div>
+
+  <!-- ===== VERSION A: IDEAL ===== -->
+  <div class="budget-section">
+    <div class="budget-header">
+      <span class="budget-badge ideal">Version A</span>
+      <span class="budget-title">Ideal</span>
+    </div>
+
+    <div class="budget-table">
+      <div class="table-header">
+        <span>Cost Item</span>
+        <span>Amount</span>
+        <span>Detail</span>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">音响租赁</div>
+          <div class="row-detail">户外全套扩声 x 2天（彩排+演出）+ 排练PA</div>
+        </div>
+        <div class="row-amount">&yen;50,000</div>
+        <div class="row-note">最大单项支出</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">排练场地（大场地）</div>
+          <div class="row-detail">100人空间 x ~12次（4月底-6月）</div>
+        </div>
+        <div class="row-amount">&yen;18,000</div>
+        <div class="row-note">~&yen;1,500/次</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">乐器租赁</div>
+          <div class="row-detail">演出用实体钢琴 + 收音 + 鼓套件（小乐器队员自带）</div>
+        </div>
+        <div class="row-amount">&yen;10,000</div>
+        <div class="row-note">实体钢琴+收音方案</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">外请管乐手</div>
+          <div class="row-detail">演出当天管乐演奏</div>
+        </div>
+        <div class="row-amount">&yen;2,000</div>
+        <div class="row-note">理想版专属</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">服装统一</div>
+          <div class="row-detail">100人演出服装</div>
+        </div>
+        <div class="row-amount">&yen;10,000</div>
+        <div class="row-note">~&yen;100/人</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">扒谱</div>
+          <div class="row-detail">40-50分钟曲目 x &yen;100/分钟</div>
+        </div>
+        <div class="row-amount">&yen;4,500</div>
+        <div class="row-note">电子谱，无印刷</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">演出场地</div>
+          <div class="row-detail">户外场地租赁（含彩排+演出）</div>
+        </div>
+        <div class="row-amount">&yen;30,000</div>
+        <div class="row-note">理想版专属</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">安保</div>
+          <div class="row-detail">演出当天（专业持证）</div>
+        </div>
+        <div class="row-amount">&yen;3,000</div>
+        <div class="row-note">1场</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">射灯租赁</div>
+          <div class="row-detail">2台 x 2天（彩排+演出）</div>
+        </div>
+        <div class="row-amount">&yen;2,000</div>
+        <div class="row-note">2台</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">摄影摄像</div>
+          <div class="row-detail">排练花絮 + 快闪 + 演出全程记录</div>
+        </div>
+        <div class="row-amount">&yen;5,000</div>
+        <div class="row-note">理想版专属</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">宣发推广</div>
+          <div class="row-detail">抖音博主投放 + 小红书 + 海外平台</div>
+        </div>
+        <div class="row-amount">&yen;30,000</div>
+        <div class="row-note">理想版专属</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">杂费</div>
+          <div class="row-detail">交通、饮水、不可预见</div>
+        </div>
+        <div class="row-amount">&yen;1,500</div>
+        <div class="row-note"></div>
+      </div>
+
+      <div class="table-total">
+        <div class="total-label">Total</div>
+        <div class="total-amount">&yen;166,000</div>
+      </div>
+    </div>
+
+    <!-- Phase spend bars -->
+    <div class="phase-spend">
+      <div class="phase-spend-title">Spend by Phase</div>
+      <div class="phase-bar-row">
+        <div class="phase-bar-label">3月 Launch</div>
+        <div class="phase-bar-track">
+          <div class="phase-bar-fill p1" style="width: 10%;">
+            <span class="phase-bar-amount">&yen;4,500</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-bar-row">
+        <div class="phase-bar-label">4月 Scale</div>
+        <div class="phase-bar-track">
+          <div class="phase-bar-fill p2" style="width: 25%;">
+            <span class="phase-bar-amount">&yen;15,000</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-bar-row">
+        <div class="phase-bar-label">5月 Flash</div>
+        <div class="phase-bar-track">
+          <div class="phase-bar-fill p3" style="width: 24%;">
+            <span class="phase-bar-amount">&yen;35,000</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-bar-row">
+        <div class="phase-bar-label">6月 Show</div>
+        <div class="phase-bar-track">
+          <div class="phase-bar-fill p4" style="width: 72%;">
+            <span class="phase-bar-amount">&yen;111,500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== VERSION B: BASIC ===== -->
+  <div class="budget-section">
+    <div class="budget-header">
+      <span class="budget-badge basic">Version B</span>
+      <span class="budget-title">Basic</span>
+    </div>
+
+    <div style="font-size: 13px; color: var(--muted); margin-bottom: 16px; font-weight: 300;">
+      仅覆盖资源互换无法解决的硬性成本。摄影摄像、宣发推广、演出场地通过资源互换解决。
+    </div>
+
+    <div class="budget-table">
+      <div class="table-header">
+        <span>Cost Item</span>
+        <span>Amount</span>
+        <span>Detail</span>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">音响租赁</div>
+          <div class="row-detail">基础扩声方案 + 资源互换争取优惠</div>
+        </div>
+        <div class="row-amount">&yen;20,000</div>
+        <div class="row-note">最大单项支出</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">排练场地（大场地）</div>
+          <div class="row-detail">100人空间 x ~12次（4月底-6月）</div>
+        </div>
+        <div class="row-amount">&yen;12,000</div>
+        <div class="row-note">~&yen;1,000/次</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">服装统一</div>
+          <div class="row-detail">100人基础统一服装</div>
+        </div>
+        <div class="row-amount">&yen;3,000</div>
+        <div class="row-note">~&yen;30/人</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">乐器租赁</div>
+          <div class="row-detail">演出用电钢琴 + 鼓套件（小乐器队员自带）</div>
+        </div>
+        <div class="row-amount">&yen;1,000</div>
+        <div class="row-note">电钢方案</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">扒谱</div>
+          <div class="row-detail">40-50分钟曲目 x &yen;100/分钟</div>
+        </div>
+        <div class="row-amount">&yen;4,500</div>
+        <div class="row-note">电子谱，无印刷</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">安保</div>
+          <div class="row-detail">演出当天（专业持证）</div>
+        </div>
+        <div class="row-amount">&yen;3,000</div>
+        <div class="row-note">1场</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">射灯租赁</div>
+          <div class="row-detail">2台 x 2天（彩排+演出）</div>
+        </div>
+        <div class="row-amount">&yen;2,000</div>
+        <div class="row-note">2台</div>
+      </div>
+
+      <div class="table-row">
+        <div>
+          <div class="row-name">杂费</div>
+          <div class="row-detail">交通、饮水</div>
+        </div>
+        <div class="row-amount">&yen;1,500</div>
+        <div class="row-note"></div>
+      </div>
+
+      <div class="table-total">
+        <div class="total-label">Total</div>
+        <div class="total-amount">&yen;47,000</div>
+      </div>
+    </div>
+
+    <!-- Phase spend bars -->
+    <div class="phase-spend">
+      <div class="phase-spend-title">Spend by Phase</div>
+      <div class="phase-bar-row">
+        <div class="phase-bar-label">3月 Launch</div>
+        <div class="phase-bar-track">
+          <div class="phase-bar-fill p1" style="width: 12%;">
+            <span class="phase-bar-amount">&yen;4,500</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-bar-row">
+        <div class="phase-bar-label">4月 Scale</div>
+        <div class="phase-bar-track">
+          <div class="phase-bar-fill p2" style="width: 28%;">
+            <span class="phase-bar-amount">&yen;12,000</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-bar-row">
+        <div class="phase-bar-label">5月 Flash</div>
+        <div class="phase-bar-track">
+          <div class="phase-bar-fill p3" style="width: 32%;">
+            <span class="phase-bar-amount">&yen;14,000</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-bar-row">
+        <div class="phase-bar-label">6月 Show</div>
+        <div class="phase-bar-track">
+          <div class="phase-bar-fill p4" style="width: 42%;">
+            <span class="phase-bar-amount">&yen;19,500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== COMPARISON ===== -->
+  <div class="compare-section">
+    <div class="compare-title">Version A vs B</div>
+    <div class="compare-table">
+      <div class="compare-header">
+        <span></span>
+        <span>Ideal &yen;166K</span>
+        <span>Basic &yen;47K</span>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">音响租赁</div>
+        <div class="compare-item yes">&yen;50,000</div>
+        <div class="compare-item yes">&yen;20,000</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">排练场地</div>
+        <div class="compare-item yes">&yen;1,500/次 x12</div>
+        <div class="compare-item yes">&yen;1,000/次 x12</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">乐器租赁</div>
+        <div class="compare-item yes">实体钢琴+收音+鼓</div>
+        <div class="compare-item yes">电钢琴+鼓</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">服装统一</div>
+        <div class="compare-item yes">&yen;10,000</div>
+        <div class="compare-item yes">&yen;3,000</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">演出场地</div>
+        <div class="compare-item yes">&yen;30,000</div>
+        <div class="compare-item exchange">资源置换/申请</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">摄影摄像</div>
+        <div class="compare-item yes">&yen;5,000</div>
+        <div class="compare-item exchange">资源互换</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-item">宣发推广</div>
+        <div class="compare-item yes">&yen;30,000</div>
+        <div class="compare-item exchange">资源互换</div>
+      </div>
+      <div class="compare-row" style="background: rgba(196,169,125,0.08); border-top: 1px solid rgba(196,169,125,0.15);">
+        <div class="compare-item" style="font-weight: 700; color: var(--accent);">Total</div>
+        <div class="compare-item" style="font-weight: 800; color: var(--accent); font-size: 15px;">&yen;166,000</div>
+        <div class="compare-item" style="font-weight: 800; color: var(--green); font-size: 15px;">&yen;47,000</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINCIPLES -->
+  <div class="principles">
+    <div class="principles-title">Funding Principles</div>
+    <div class="principle-item">
+      <div class="principle-dot"></div>
+      <div class="principle-text"><strong>全程公益</strong> -- 不向任何参与者收费，所有人无偿参与</div>
+    </div>
+    <div class="principle-item">
+      <div class="principle-dot"></div>
+      <div class="principle-text"><strong>透明公开</strong> -- 每笔支出可追溯，定期向赞助方汇报</div>
+    </div>
+    <div class="principle-item">
+      <div class="principle-dot"></div>
+      <div class="principle-text"><strong>资源互换优先</strong> -- 能通过合作解决的不花钱，赞助资金只用于硬成本</div>
+    </div>
+    <div class="principle-item">
+      <div class="principle-dot"></div>
+      <div class="principle-text"><strong>无赞助也能落地</strong> -- 赞助让品质更高，但项目不依赖赞助</div>
+    </div>
+    <div class="principle-item">
+      <div class="principle-dot"></div>
+      <div class="principle-text"><strong>仍在争取缩减</strong> -- 音响租赁与排练场地目前尚未获得资源置换或帮助，若后续谈成合作，这两项费用有望缩减最高 90%（缩减后 Ideal ~&yen;105K / Basic ~&yen;18K）</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-project">Sunday Service Shenzhen</div>
+  <div class="footer-text">Budget Proposal &middot; March — June 2026</div>
+</div>
+
+</body>
+</html>
